@@ -17,7 +17,7 @@ class NPSApp(object):
     def resize(self):
         pass
 
-    def __remove_argument_call_main(self, screen, enable_mouse=True):
+    def __remove_argument_call_main(self, screen, enable_mouse=False):
         # screen disgarded.
         if enable_mouse:
             curses.mousemask(curses.ALL_MOUSE_EVENTS)
