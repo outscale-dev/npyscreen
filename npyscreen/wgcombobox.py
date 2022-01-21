@@ -9,9 +9,14 @@ from . import wgtitlefield  as titlefield
 
 class ComboBox(textbox.Textfield):
     ENSURE_STRING_VALUE = False
-    def __init__(self, screen, value = None, values=None,**keywords):
+    def __init__(self, screen, value = None, values=None, popup_columns=None,
+                 popup_lines=None, popup_atx=None, popup_aty=None, **keywords):
         self.values = values or []
         self.value = value or None
+        self.popup_columns = popup_columns or None
+        self.popup_lines = popup_lines or None
+        self.popup_atx = popup_atx or None
+        self.popup_aty = popup_aty or None
         if value is 0: 
             self.value = 0
         super(ComboBox, self).__init__(screen, **keywords)
@@ -59,8 +64,17 @@ Should accept one argument (the object to be represented), and return a string."
     
     def h_change_value(self, input):
         "Pop up a window in which to select the values for the field"
-        F = Popup.Popup(name = self.name)
-        l = F.add(multiline.MultiLine, 
+        kwargs = {"name": self.name}
+        if self.popup_atx:
+            kwargs["show_atx"] = self.popup_atx
+        if self.popup_aty:
+            kwargs["show_aty"] = self.popup_aty
+        if self.popup_columns:
+            kwargs["columns"] = self.popup_columns
+        if self.popup_lines:
+            kwargs["lines"] = self.popup_lines
+        F = Popup.Popup(**kwargs)
+        l = F.add(multiline.MultiLine,
             values = [self.display_value(x) for x in self.values],
             return_exit=True, select_exit=True,
             value=self.value)
