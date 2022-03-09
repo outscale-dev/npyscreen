@@ -225,7 +225,7 @@ object to be passed to the contained widget."""
                 line.update(clear=False)
             elif len((self._my_widgets)*self._contained_widget_height)<self.height:
                 self._print_line(line, indexer)
-                line.task="PRINTLINELASTOFSCREEN"
+                line.task="PRINT_LINE_LAST_OF_SCREEN"
                 line.update(clear=False)
                 if self.do_colors():
                     self.parent.curses_pad.addstr(self.rely+self.height-1, self.relx, MORE_LABEL, self.parent.theme_manager.findPair(self, 'CONTROL'))
@@ -259,7 +259,7 @@ object to be passed to the contained widget."""
         
         # This will prevent the program crashing if the user has changed values, and the cursor 
         # is now on the bottom line.
-        if (self._my_widgets[self.cursor_line-self.start_display_at].task in (MORE_LABEL, "PRINTLINELASTOFSCREEN")): 
+        if (self._my_widgets[self.cursor_line-self.start_display_at].task in (MORE_LABEL, "PRINT_LINE_LAST_OF_SCREEN")):
             if self.slow_scroll:
                 self.start_display_at += 1
             else:
