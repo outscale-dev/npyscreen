@@ -1,16 +1,16 @@
 #! /usr/bin/env python3
 
 import sys
-import npyscreen
+import oscscreen
 
-class TestMenuForm(npyscreen.FormBaseNew):
+class TestMenuForm(oscscreen.FormBaseNew):
     def create(self):
-        self.Selection = self.add(npyscreen.TitleMultiSelect,
+        self.Selection = self.add(oscscreen.TitleMultiSelect,
                                   name="select",
                                   values=["a","b","c"],
                                   max_height=3,
                                   scroll_exit=True)
-        self.messageBox = self.add(npyscreen.Pager,
+        self.messageBox = self.add(oscscreen.Pager,
                                    name="Messages",
                                    max_height=4,
                                    editable=False)
@@ -25,9 +25,9 @@ class TestMenuForm(npyscreen.FormBaseNew):
                                           arg.value,
                                           len(arg.value)]
             self.messageBox.display()
-            npyscreen.notify_yes_no('Has this worked', editw=1)
+            oscscreen.notify_yes_no('Has this worked', editw=1)
         
-class TestApp(npyscreen.NPSAppManaged):
+class TestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         testMenuForm = TestMenuForm(name="Selection")
         self.registerForm('MAIN', testMenuForm)

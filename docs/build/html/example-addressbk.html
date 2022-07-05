@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Example Application: A simple address book &mdash; npyscreen 2 documentation</title>
+    <title>Example Application: A simple address book &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="prev" title="Writing Tests" href="writing-tests.html" /> 
   </head>
   <body>
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="writing-tests.html" title="Writing Tests"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -106,7 +106,7 @@
 </pre></div>
 </div>
 <p>The main screen of the application will be a list of names.  When the user selects a name, we will want to edit it.  We will subclass MultiLineAction, and override <cite>display value</cite> to change how each record is presented.  We will also override the method <cite>actionHighlighted</cite> to switch to the edit form when required.  Finally, we will add two new keypresses - one to add and one to delete records.  Before switching to the EDITRECORDFM, we either set its value to None, if creating a new form, or else set its value to that of the record we wish to edit.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecordList</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">MultiLineAction</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecordList</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">MultiLineAction</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RecordList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_handlers</span><span class="p">({</span>
@@ -131,7 +131,7 @@
 </pre></div>
 </div>
 <p>The actual form to display the record list will be a FormMutt subclass. We will alter the <cite>MAIN_WIDGET_CLASS</cite> class variable to use our RecordList widget, and make sure that the list of records is updated every time the form is presented to the user.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecordListDisplay</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FormMutt</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecordListDisplay</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">FormMutt</span><span class="p">):</span>
     <span class="n">MAIN_WIDGET_CLASS</span> <span class="o">=</span> <span class="n">RecordList</span>
     <span class="k">def</span> <span class="nf">beforeEditing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_list</span><span class="p">()</span>
@@ -142,12 +142,12 @@
 </pre></div>
 </div>
 <p>The form to edit each record will be an example of an ActionForm.  Records will only be altered when the user selects the &#8216;ok&#8217; button. Before the form is presented to the user, the values of each of the individual widgets are updated to match the database record, or cleared if we are creating a new record.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">EditRecord</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">ActionForm</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">EditRecord</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">ActionForm</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wgLastName</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Last Name:&quot;</span><span class="p">,)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wgOtherNames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Other Names:&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wgEmail</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Email:&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wgLastName</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Last Name:&quot;</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wgOtherNames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Other Names:&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wgEmail</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Email:&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">beforeEditing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
@@ -183,7 +183,7 @@
 </pre></div>
 </div>
 <p>Finally, we need an application object that manages the two forms and the database:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">AddressBookApplication</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSAppManaged</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">AddressBookApplication</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">NPSAppManaged</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">onStart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">myDatabase</span> <span class="o">=</span> <span class="n">AddressDatabase</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addForm</span><span class="p">(</span><span class="s">&quot;MAIN&quot;</span><span class="p">,</span> <span class="n">RecordListDisplay</span><span class="p">)</span>
@@ -236,7 +236,7 @@
         <li class="right" >
           <a href="writing-tests.html" title="Writing Tests"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

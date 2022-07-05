@@ -1,9 +1,9 @@
-.. npyscreen documentation master file, created by
+.. oscscreen documentation master file, created by
    sphinx-quickstart on Tue Dec 31 12:31:09 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to npyscreen's documentation!
+Welcome to oscscreen's documentation!
 =====================================
 
 Contents:

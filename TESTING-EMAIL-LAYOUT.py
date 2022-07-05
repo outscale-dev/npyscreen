@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import npyscreen
-#npyscreen.disableColor()
+import oscscreen
+#oscscreen.disableColor()
 
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
-        F  = npyscreen.Form(name = "Welcome to Npyscreen",)
+        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
         
-        classification = F.add(npyscreen.MultiLineEditableBoxed,
+        classification = F.add(oscscreen.MultiLineEditableBoxed,
                         max_height=4,
                         name='Classification:',
                         #footer="Press i or o to insert values", 
@@ -17,7 +17,7 @@ class TestApp(npyscreen.NPSApp):
         #F.nextrely += 1
         
         
-        subject = F.add(npyscreen.MultiLineEditableBoxed,
+        subject = F.add(oscscreen.MultiLineEditableBoxed,
                         max_height=4,
                         name='Subject:',
                         #footer="Press i or o to insert values", 
@@ -25,19 +25,19 @@ class TestApp(npyscreen.NPSApp):
         
         #F.nextrely += 1
         
-        to = F.add(npyscreen.MultiLineEditableBoxed,
+        to = F.add(oscscreen.MultiLineEditableBoxed,
                         max_height=6,
                         name='To:',
                         #footer="Press i or o to insert values",
                         scroll_exit=True)
                         
-        cc = F.add(npyscreen.MultiLineEditableBoxed,
+        cc = F.add(oscscreen.MultiLineEditableBoxed,
                         max_height=6,
                         name='CC:',
                         #footer="Press i or o to insert values", 
                         scroll_exit=True)
         
-        bcc = F.add(npyscreen.MultiLineEditableBoxed,
+        bcc = F.add(oscscreen.MultiLineEditableBoxed,
                         max_height=6,
                         name='BCC:',
                         #footer="Press i or o to insert values", 

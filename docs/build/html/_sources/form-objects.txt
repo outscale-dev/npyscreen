@@ -78,7 +78,7 @@ Other Standard Form Features
  
 .. py:method:: Form.while_waiting
 
-   If you wish to perform actions while waiting for the user to press a key, you may define a *while_waiting* method.  You should also set the attribute *keypress_timeout*, which is a value in ms.  Whenever waiting for input, if more than the time given in *keypress_timeout* passes, while_waiting will be called.  Note that npyscreen takes no steps to ensure that *while_waiting()* is called at exactly regular intervals, and in fact it may never be called at all if the user continually presses keys.
+   If you wish to perform actions while waiting for the user to press a key, you may define a *while_waiting* method.  You should also set the attribute *keypress_timeout*, which is a value in ms.  Whenever waiting for input, if more than the time given in *keypress_timeout* passes, while_waiting will be called.  Note that oscscreen takes no steps to ensure that *while_waiting()* is called at exactly regular intervals, and in fact it may never be called at all if the user continually presses keys.
    
    If a form's parentApp has a method called *while_waiting* this will also be called.
    
@@ -315,7 +315,7 @@ Menus are usually created by calling a (supporting) Form's *new_menu* method.  V
 
 .. py:method:: NewMenu.addItem(text='', onSelect=function, shortcut=None, arguments=None, keywords=None)
 
-   *text* should be the string to be displayed on the menu.  `onSelect` should be a function to be called if that item is selected by the user.  This is one of the few easy opportunities in npyscreen to create circular references - you may wish to pass in a proxy to a function instead.  I've tried to guard you against circular references as much as possible - but this is just one of those times I can't second-guess your application structure. Version 2.0pre82 adds the ability to add a shortcut. 
+   *text* should be the string to be displayed on the menu.  `onSelect` should be a function to be called if that item is selected by the user.  This is one of the few easy opportunities in oscscreen to create circular references - you may wish to pass in a proxy to a function instead.  I've tried to guard you against circular references as much as possible - but this is just one of those times I can't second-guess your application structure. Version 2.0pre82 adds the ability to add a shortcut. 
    
    From version 3.6 onwards, menu items can be specified with a list of *arguments* and/or a dictionary of keywords.
    
@@ -343,12 +343,12 @@ Resizing Forms (New in version 2.0pre88)
 
 When a form is resized, a signal is sent to the form currently on the screen.  Whether or not the form handles this is decided by three things.
 
-If you set the variable `npyscreen.DISABLE_RESIZE_SYSTEM` to True, forms will not resize at all.
+If you set the variable `oscscreen.DISABLE_RESIZE_SYSTEM` to True, forms will not resize at all.
 
 The class attribute `ALLOW_RESIZE` (=True by default).
 	If this is set to false the form will not resize itself.
 	
-The class attribute `FIX_MINIMUM_SIZE_WHEN_CREATED` controls whether the form can be made smaller than the size it was when it was created.  By default this is set to `False`.  This is because for over a decade, npyscreen assumed that forms would never change size, and many programs may rely on the fact that the form will never be resized.  If you are writing new code from scratch, you can set this value to True, provided that you test the results to make sure that resizing the form will not crash your application.
+The class attribute `FIX_MINIMUM_SIZE_WHEN_CREATED` controls whether the form can be made smaller than the size it was when it was created.  By default this is set to `False`.  This is because for over a decade, oscscreen assumed that forms would never change size, and many programs may rely on the fact that the form will never be resized.  If you are writing new code from scratch, you can set this value to True, provided that you test the results to make sure that resizing the form will not crash your application.
 
 When a form is resized, the method `resize` will be called *after* the new size of the form has been fixed.  Forms may override this method to move widgets to new locations or alter anything else about the layout of the form as appropriate.
 

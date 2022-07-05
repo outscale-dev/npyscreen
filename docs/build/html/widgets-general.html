@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Widgets: Dates, Sliders and Combination Widgets &mdash; npyscreen 2 documentation</title>
+    <title>Widgets: Dates, Sliders and Combination Widgets &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="next" title="Widgets: Titled Widgets" href="widgets-title.html" />
     <link rel="prev" title="Widgets: Trees and Tree displays" href="widgets-trees.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="widgets-trees.html" title="Widgets: Trees and Tree displays"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -130,7 +130,7 @@ select_whole_line = False (new in version 4.2)</pre>
 <p>New in version 4.8.2.</p>
 <p>For some applications it may be desirable to customize the attributes of the contained grid widgets depending upon their content. Grid widgets call a method called <cite>custom_print_cell(actual_cell, display_value)</cite> after they have set the value of a cell and before the content of the cell is drawn to the screen.  The parameter <cite>actual_cell</cite> is the underlying widget object being used for display, while <cite>display_value</cite> is the object that has been set as the content of the cell (which is the output of the <cite>display_value</cite> method).</p>
 <p>The following code demonstrates how to use this facility to adjust the color of the text displayed in a grid. My thanks are due to Johan Lundström for suggesting this feature:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyGrid</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">GridColTitles</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyGrid</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">GridColTitles</span><span class="p">):</span>
     <span class="c"># You need to override custom_print_cell to manipulate how</span>
     <span class="c"># a cell is printed. In this example we change the color of the</span>
     <span class="c"># text depending on the string value of cell.</span>
@@ -144,8 +144,8 @@ select_whole_line = False (new in version 4.2)</pre>
 
 <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="c"># making an example Form</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Example viewer&#39;</span><span class="p">)</span>
-    <span class="n">myFW</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">)</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">oscscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Example viewer&#39;</span><span class="p">)</span>
+    <span class="n">myFW</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">)</span>
     <span class="n">gd</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MyGrid</span><span class="p">)</span>
 
     <span class="c"># Adding values to the Grid, this code just randomly</span>
@@ -162,7 +162,7 @@ select_whole_line = False (new in version 4.2)</pre>
     <span class="n">F</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">npyscreen</span><span class="o">.</span><span class="n">wrapper_basic</span><span class="p">(</span><span class="n">myFunction</span><span class="p">)</span>
+    <span class="n">oscscreen</span><span class="o">.</span><span class="n">wrapper_basic</span><span class="p">(</span><span class="n">myFunction</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -180,8 +180,8 @@ select_whole_line = False (new in version 4.2)</pre>
 <dd><p class="first">This widgets allow the label of the checkbox to be more than one line long.  The name of the widget should be specified as a
 list or tuple of strings.</p>
 <p>To use these widgets as part of a multiline widget, do the following:</p>
-<div class="highlight-python"><pre>class MultiSelectWidgetOfSomeKind(npyscreen.MultiSelect):
-    _contained_widgets = npyscreen.CheckBoxMultiline
+<div class="highlight-python"><pre>class MultiSelectWidgetOfSomeKind(oscscreen.MultiSelect):
+    _contained_widgets = oscscreen.CheckBoxMultiline
     _contained_widget_height = 2
 
     def display_value(self, vl):
@@ -230,7 +230,7 @@ although by default the class does not check this.</dd>
 <dt><em>annotationColor</em>, <em>annotationNoColor</em></dt>
 <dd>These methods draw the annotation on the screen.  If using strings
 only, these should not need overriding.  If one is altered, the other should
-be too, since npyscreen will use one if the display is configured for colour
+be too, since oscscreen will use one if the display is configured for colour
 and the other if configured for black and white.</dd>
 </dl>
 </dd>
@@ -293,7 +293,7 @@ and the other if configured for black and white.</dd>
         <li class="right" >
           <a href="widgets-trees.html" title="Widgets: Trees and Tree displays"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

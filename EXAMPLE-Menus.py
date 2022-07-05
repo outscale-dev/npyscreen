@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import npyscreen, curses
+import oscscreen, curses
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         self.registerForm("MAIN", MainForm())
 
-class MainForm(npyscreen.FormWithMenus):
+class MainForm(oscscreen.FormWithMenus):
     def create(self):
-        self.add(npyscreen.TitleText, name = "Text:", value= "Just some text." )
-        self.how_exited_handers[npyscreen.wgwidget.EXITED_ESCAPE]  = self.exit_application    
+        self.add(oscscreen.TitleText, name = "Text:", value= "Just some text." )
+        self.how_exited_handers[oscscreen.wgwidget.EXITED_ESCAPE]  = self.exit_application    
         
         # The menus are created here.
         self.m1 = self.add_menu(name="Main Menu", shortcut="^M")
@@ -31,7 +31,7 @@ class MainForm(npyscreen.FormWithMenus):
         ])        
 
     def whenDisplayText(self, argument):
-       npyscreen.notify_confirm(argument)
+       oscscreen.notify_confirm(argument)
 
     def whenJustBeep(self):
         curses.beep()

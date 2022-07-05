@@ -61,7 +61,7 @@ An address book applicaton requires a database.  For the sake of convenience, we
 
 The main screen of the application will be a list of names.  When the user selects a name, we will want to edit it.  We will subclass MultiLineAction, and override `display value` to change how each record is presented.  We will also override the method `actionHighlighted` to switch to the edit form when required.  Finally, we will add two new keypresses - one to add and one to delete records.  Before switching to the EDITRECORDFM, we either set its value to None, if creating a new form, or else set its value to that of the record we wish to edit. ::
     
-    class RecordList(npyscreen.MultiLineAction):
+    class RecordList(oscscreen.MultiLineAction):
         def __init__(self, *args, **keywords):
             super(RecordList, self).__init__(*args, **keywords)
             self.add_handlers({
@@ -86,7 +86,7 @@ The main screen of the application will be a list of names.  When the user selec
             
 The actual form to display the record list will be a FormMutt subclass. We will alter the `MAIN_WIDGET_CLASS` class variable to use our RecordList widget, and make sure that the list of records is updated every time the form is presented to the user. ::
 
-    class RecordListDisplay(npyscreen.FormMutt):
+    class RecordListDisplay(oscscreen.FormMutt):
         MAIN_WIDGET_CLASS = RecordList
         def beforeEditing(self):
             self.update_list()
@@ -97,12 +97,12 @@ The actual form to display the record list will be a FormMutt subclass. We will 
 
 The form to edit each record will be an example of an ActionForm.  Records will only be altered when the user selects the 'ok' button. Before the form is presented to the user, the values of each of the individual widgets are updated to match the database record, or cleared if we are creating a new record. ::
 
-    class EditRecord(npyscreen.ActionForm):
+    class EditRecord(oscscreen.ActionForm):
         def create(self):
             self.value = None
-            self.wgLastName   = self.add(npyscreen.TitleText, name = "Last Name:",)
-            self.wgOtherNames = self.add(npyscreen.TitleText, name = "Other Names:")
-            self.wgEmail      = self.add(npyscreen.TitleText, name = "Email:")
+            self.wgLastName   = self.add(oscscreen.TitleText, name = "Last Name:",)
+            self.wgOtherNames = self.add(oscscreen.TitleText, name = "Other Names:")
+            self.wgEmail      = self.add(oscscreen.TitleText, name = "Email:")
         
         def beforeEditing(self):
             if self.value:
@@ -138,7 +138,7 @@ The form to edit each record will be an example of an ActionForm.  Records will 
 
 Finally, we need an application object that manages the two forms and the database::
 
-    class AddressBookApplication(npyscreen.NPSAppManaged):
+    class AddressBookApplication(oscscreen.NPSAppManaged):
         def onStart(self):
             self.myDatabase = AddressDatabase()
             self.addForm("MAIN", RecordListDisplay)

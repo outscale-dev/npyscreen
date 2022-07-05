@@ -108,7 +108,7 @@ def single_line_input(default_value="Input Text", title="Message", form_color='S
 
     F = ConfirmCancelPopup(name=title, color=form_color)
     F.preserve_selected_widget = True
-    tf = F.add(npyscreen.Textfield)
+    tf = F.add(oscscreen.Textfield)
     tf.width = tf.width - 1
     tf.value = default_value
     F.edit()

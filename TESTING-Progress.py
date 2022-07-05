@@ -1,19 +1,19 @@
-import npyscreen
+import oscscreen
 
 
-class ProcessBar(npyscreen.Slider):
+class ProcessBar(oscscreen.Slider):
     def __init__(self, *args, **keywords):
         super(ProcessBar, self).__init__(*args, **keywords)
         self.editable = False
         
-class ProcessBarBox(npyscreen.BoxTitle):          
+class ProcessBarBox(oscscreen.BoxTitle):          
     _contained_widget = ProcessBar
 
 
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
-        F = npyscreen.Form(name = "Welcome to Npyscreen",)
+        F = oscscreen.Form(name = "Welcome to Oscscreen",)
         s = F.add(ProcessBarBox, max_height=3, out_of=12, value=5, name = "Text:")
         
         #s.editable=False

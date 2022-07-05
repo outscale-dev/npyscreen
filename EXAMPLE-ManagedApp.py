@@ -6,16 +6,16 @@ ExampleManaged.py
 Created by Nicholas Cole on 2007-02-22.
 """
 
-import npyscreen, curses
+import oscscreen, curses
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         self.registerForm("MAIN", MainForm())
     
-class MainForm(npyscreen.Form):
+class MainForm(oscscreen.Form):
     def create(self):
-        self.add(npyscreen.TitleText, name = "Text:", value= "Press Escape to quit application" )
-        self.how_exited_handers[npyscreen.wgwidget.EXITED_ESCAPE]  = self.exit_application    
+        self.add(oscscreen.TitleText, name = "Text:", value= "Press Escape to quit application" )
+        self.how_exited_handers[oscscreen.wgwidget.EXITED_ESCAPE]  = self.exit_application    
 
     def exit_application(self):
         curses.beep()

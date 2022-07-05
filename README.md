@@ -1,35 +1,35 @@
-*Npyscreen is a python widget library and application framework for programming terminal or console applications.  It is built on top of ncurses, which is part of the standard library.*
+*Oscscreen is a python widget library and application framework for programming terminal or console applications.  It is built on top of ncurses, which is part of the standard library.*
 
 Documentation
 =============
 
 Online documentation can be found at:
 
-http://npyscreen.readthedocs.org/
+http://oscscreen.readthedocs.org/
 
 Downloads
 =========
 
 The library can be downloaded from:
 
-https://pypi.python.org/pypi/npyscreen/
+https://pypi.python.org/pypi/oscscreen/
 
 Official Repository
 ===================
 
 Please note that the official source code repository is at:
 
-https://bitbucket.org/npcole/npyscreen
+https://bitbucket.org/npcole/oscscreen
 
 There is a github repository at:
 
-https://github.com/npcole/npyscreen
+https://github.com/npcole/oscscreen
 
 for users that prefer github.  If possible, though, please file bug reports at the bitbucket repository.
 
 The original source code archive was at:
 
-https://code.google.com/p/npyscreen/
+https://code.google.com/p/oscscreen/
 
 This archive will continue to be updated for as long as code.google.com accepts updates.
 
@@ -48,7 +48,7 @@ Support
 =======
 Please use the Issue Tracker on this page to report bugs and other problems, or to make feature requests.
 
-There is a mailing list at https://groups.google.com/forum/?fromgroups#!forum/npyscreen/ if you need help getting your application to run.
+There is a mailing list at https://groups.google.com/forum/?fromgroups#!forum/oscscreen/ if you need help getting your application to run.
 
 ----
 
@@ -71,4 +71,4 @@ Similar Projects
 
 You might also like to look at http://excess.org/urwid/ 
 
-Compared to npyscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.
+Compared to oscscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.

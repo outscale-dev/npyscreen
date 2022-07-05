@@ -85,17 +85,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/npyscreen.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/oscscreen.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/npyscreen.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/oscscreen.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/npyscreen"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/npyscreen"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/oscscreen"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/oscscreen"
 	@echo "# devhelp"
 
 epub:

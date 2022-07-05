@@ -1,15 +1,15 @@
-import npyscreen
+import oscscreen
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         self.registerForm("MAIN", MainForm(lines=47))
 
-class MainForm(npyscreen.Form):
+class MainForm(oscscreen.Form):
     def create(self):
         vl = []
         for x in range(100):
             vl.append("Value %s" % x)
-        self.add(npyscreen.MultiSelect, values=vl)
+        self.add(oscscreen.MultiSelect, values=vl)
 
 def main():
     TA = MyTestApp()

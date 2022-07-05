@@ -4,9 +4,9 @@
 import cProfile
 import pstats
 
-from npyscreen import NPSApp
-from npyscreen import Form
-from npyscreen import TextTokens, TitleTextTokens
+from oscscreen import NPSApp
+from oscscreen import Form
+from oscscreen import TextTokens, TitleTextTokens
 
 class TextBoxForm(Form):
     def create(self):
@@ -44,7 +44,7 @@ class TextBoxForm(Form):
 
 class App(NPSApp):
    def main(self):
-       form = TextBoxForm(name='Welcome to Npyscreen')
+       form = TextBoxForm(name='Welcome to Oscscreen')
        form.edit()
 
 if __name__ == '__main__':

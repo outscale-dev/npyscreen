@@ -4,17 +4,17 @@ Support for Colour
 Setting up colour
 *****************
 
-All of the standard widgets are entirely usable on a monochrome terminal.  However, it's a colourful world these days, and npyscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.
+All of the standard widgets are entirely usable on a monochrome terminal.  However, it's a colourful world these days, and oscscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.
 
 Colour is handled by the ThemeManager class.  Generally, your application should stick to using one ThemeManager, which you should set using the *setTheme(ThemeManager)* function.  So for example::
 
-    npyscreen.setTheme(npyscreen.Themes.ColorfulTheme)
+    oscscreen.setTheme(oscscreen.Themes.ColorfulTheme)
     
-Any default themes defined by npyscreen will be accessible via npyscreen.Themes.
+Any default themes defined by oscscreen will be accessible via oscscreen.Themes.
 
 A basic theme looks like this::
 
-    class DefaultTheme(npyscreen.ThemeManager):
+    class DefaultTheme(oscscreen.ThemeManager):
         default_colors = {
         'DEFAULT'     : 'WHITE_BLACK',
         'FORMDEFAULT' : 'WHITE_BLACK',
@@ -50,9 +50,9 @@ The colours - such as WHITE_BLACK ("white on black") - are defined in the *initi
 
 ('WHITE_BLACK' is always defined.)    
 
-If you find you need more, subclass ThemeManager and change class attribute *_colours_to_define*.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, npyscreen does not by default.
+If you find you need more, subclass ThemeManager and change class attribute *_colours_to_define*.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, oscscreen does not by default.
 
-If you want to disable all colour in your application, npyscreen defines two convenient functions: *disableColor()* and *enableColor()*.
+If you want to disable all colour in your application, oscscreen defines two convenient functions: *disableColor()* and *enableColor()*.
 
 
 How Widgets use colour
@@ -80,6 +80,6 @@ The class variable color_values will be used when the class is initialized to re
 			(70, (150,250,100)),
 	    )
 		
-NB. Current versions of npyscreen make no effort to reset these values when the application exits.
+NB. Current versions of oscscreen make no effort to reset these values when the application exits.
 
 Use of this facility is discouraged, because it is impossible to tell reliably whether or not a terminal actually supports custom colours.  This feature was added at user request to support a custom application.

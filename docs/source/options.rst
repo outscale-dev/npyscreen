@@ -28,29 +28,29 @@ The following short demo program will store the specified options in the file '/
 	#!/usr/bin/env python
 	# encoding: utf-8
 
-	import npyscreen
-	class TestApp(npyscreen.NPSApp):
+	import oscscreen
+	class TestApp(oscscreen.NPSApp):
 	    def main(self):
-	        Options = npyscreen.OptionList()
+	        Options = oscscreen.OptionList()
     
 	        # just for convenience so we don't have to keep writing Options.options
 	        options = Options.options
     
-	        options.append(npyscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
-	        options.append(npyscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
-	        options.append(npyscreen.OptionFilename('Filename', ))
-	        options.append(npyscreen.OptionDate('Date', ))
-	        options.append(npyscreen.OptionMultiFreeText('Multiline Text', value=''))
-	        options.append(npyscreen.OptionMultiFreeList('Multiline List'))
+	        options.append(oscscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
+	        options.append(oscscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
+	        options.append(oscscreen.OptionFilename('Filename', ))
+	        options.append(oscscreen.OptionDate('Date', ))
+	        options.append(oscscreen.OptionMultiFreeText('Multiline Text', value=''))
+	        options.append(oscscreen.OptionMultiFreeList('Multiline List'))
     
 			try:
 	        	Options.reload_from_file('/tmp/test')        
     		except FileNotFoundError:
 				pass
 				
-	        F  = npyscreen.Form(name = "Welcome to Npyscreen",)
+	        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
 
-	        ms = F.add(npyscreen.OptionListDisplay, name="Option List", 
+	        ms = F.add(oscscreen.OptionListDisplay, name="Option List", 
 	                values = options, 
 	                scroll_exit=True,
 	                max_height=None)

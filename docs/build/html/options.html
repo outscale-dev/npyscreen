@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Application Support &mdash; npyscreen 2 documentation</title>
+    <title>Application Support &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="next" title="Writing More Complex Forms" href="muttlike.html" />
     <link rel="prev" title="Displaying Brief Messages and Choices" href="messages.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="messages.html" title="Displaying Brief Messages and Choices"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -68,29 +68,29 @@
 <div class="highlight-python"><pre>#!/usr/bin/env python
 # encoding: utf-8
 
-import npyscreen
-class TestApp(npyscreen.NPSApp):
+import oscscreen
+class TestApp(oscscreen.NPSApp):
     def main(self):
-        Options = npyscreen.OptionList()
+        Options = oscscreen.OptionList()
 
         # just for convenience so we don't have to keep writing Options.options
         options = Options.options
 
-        options.append(npyscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
-        options.append(npyscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
-        options.append(npyscreen.OptionFilename('Filename', ))
-        options.append(npyscreen.OptionDate('Date', ))
-        options.append(npyscreen.OptionMultiFreeText('Multiline Text', value=''))
-        options.append(npyscreen.OptionMultiFreeList('Multiline List'))
+        options.append(oscscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
+        options.append(oscscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
+        options.append(oscscreen.OptionFilename('Filename', ))
+        options.append(oscscreen.OptionDate('Date', ))
+        options.append(oscscreen.OptionMultiFreeText('Multiline Text', value=''))
+        options.append(oscscreen.OptionMultiFreeList('Multiline List'))
 
                 try:
                 Options.reload_from_file('/tmp/test')
         except FileNotFoundError:
                         pass
 
-        F  = npyscreen.Form(name = "Welcome to Npyscreen",)
+        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
 
-        ms = F.add(npyscreen.OptionListDisplay, name="Option List",
+        ms = F.add(oscscreen.OptionListDisplay, name="Option List",
                 values = options,
                 scroll_exit=True,
                 max_height=None)
@@ -161,7 +161,7 @@ if __name__ == "__main__":
         <li class="right" >
           <a href="messages.html" title="Displaying Brief Messages and Choices"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

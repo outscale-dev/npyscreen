@@ -99,7 +99,7 @@ The following code demonstrates how to use this facility to adjust the color of 
 
 
 
-    class MyGrid(npyscreen.GridColTitles):
+    class MyGrid(oscscreen.GridColTitles):
         # You need to override custom_print_cell to manipulate how
         # a cell is printed. In this example we change the color of the
         # text depending on the string value of cell.
@@ -113,8 +113,8 @@ The following code demonstrates how to use this facility to adjust the color of 
 
     def myFunction(*args):
         # making an example Form
-        F = npyscreen.Form(name='Example viewer')
-        myFW = F.add(npyscreen.TitleText)
+        F = oscscreen.Form(name='Example viewer')
+        myFW = F.add(oscscreen.TitleText)
         gd = F.add(MyGrid)
     
         # Adding values to the Grid, this code just randomly
@@ -131,7 +131,7 @@ The following code demonstrates how to use this facility to adjust the color of 
         F.edit()
 
     if __name__ == '__main__':
-        npyscreen.wrapper_basic(myFunction)
+        oscscreen.wrapper_basic(myFunction)
 
 
 
@@ -154,8 +154,8 @@ CheckBoxMultiline, RoundCheckBoxMultiline
     
     To use these widgets as part of a multiline widget, do the following::
     
-        class MultiSelectWidgetOfSomeKind(npyscreen.MultiSelect):
-            _contained_widgets = npyscreen.CheckBoxMultiline
+        class MultiSelectWidgetOfSomeKind(oscscreen.MultiSelect):
+            _contained_widgets = oscscreen.CheckBoxMultiline
             _contained_widget_height = 2
     
             def display_value(self, vl):
@@ -212,7 +212,7 @@ AnnotateTextboxBase, TreeLineAnnotated, TreeLineSelectableAnnotated
     *annotationColor*, *annotationNoColor*
         These methods draw the annotation on the screen.  If using strings
         only, these should not need overriding.  If one is altered, the other should
-        be too, since npyscreen will use one if the display is configured for colour
+        be too, since oscscreen will use one if the display is configured for colour
         and the other if configured for black and white.
 
 

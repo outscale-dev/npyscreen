@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 
-class EditorFormExample(npyscreen.FormMutt):
-    MAIN_WIDGET_CLASS = npyscreen.Pager
+class EditorFormExample(oscscreen.FormMutt):
+    MAIN_WIDGET_CLASS = oscscreen.Pager
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
         F = EditorFormExample()
         F.wStatus1.value = "Status Line "

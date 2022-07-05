@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# npyscreen documentation build configuration file, created by
+# oscscreen documentation build configuration file, created by
 # sphinx-quickstart on Sat Jan  4 17:21:30 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'npyscreen'
+project = 'oscscreen'
 copyright = '2014, Nicholas Cole'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -179,7 +179,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'npyscreendoc'
+htmlhelp_basename = 'oscscreendoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -199,7 +199,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'npyscreen.tex', 'npyscreen Documentation',
+  ('index', 'oscscreen.tex', 'oscscreen Documentation',
    'Nicholas Cole', 'manual'),
 ]
 
@@ -229,7 +229,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'npyscreen', 'npyscreen Documentation',
+    ('index', 'oscscreen', 'oscscreen Documentation',
      ['Nicholas Cole'], 1)
 ]
 
@@ -243,8 +243,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'npyscreen', 'npyscreen Documentation',
-   'Nicholas Cole', 'npyscreen', 'One line description of project.',
+  ('index', 'oscscreen', 'oscscreen Documentation',
+   'Nicholas Cole', 'oscscreen', 'One line description of project.',
    'Miscellaneous'),
 ]
 

@@ -1,4 +1,4 @@
-An introduction to npyscreen
+An introduction to oscscreen
 ============================
 
 *'Writing user interfaces without all that mucking about in hyperspace'*
@@ -6,7 +6,7 @@ An introduction to npyscreen
 Purpose
 -------
 
-Npyscreen is a python widget library and application framework for programming terminal or console applications. It is built on top of ncurses, which is part of the standard library.  
+Oscscreen is a python widget library and application framework for programming terminal or console applications. It is built on top of ncurses, which is part of the standard library.  
 
 Wouldn't it be really nice if asking the user to give you some information could be easy? As easy as::
 
@@ -35,23 +35,23 @@ This is an example of a simple, one-screen application.  More advanced applicati
 	#!/usr/bin/env python
 	# encoding: utf-8
 	
-	import npyscreen
-	class TestApp(npyscreen.NPSApp):
+	import oscscreen
+	class TestApp(oscscreen.NPSApp):
 	    def main(self):
 	        # These lines create the form and populate it with widgets.
 	        # A fairly complex screen in only 8 or so lines of code - a line for each control.
-	        F  = npyscreen.Form(name = "Welcome to Npyscreen",)
-	        t  = F.add(npyscreen.TitleText, name = "Text:",)
-	        fn = F.add(npyscreen.TitleFilename, name = "Filename:")
-	        fn2 = F.add(npyscreen.TitleFilenameCombo, name="Filename2:")
-	        dt = F.add(npyscreen.TitleDateCombo, name = "Date:")
-	        s  = F.add(npyscreen.TitleSlider, out_of=12, name = "Slider")
-	        ml = F.add(npyscreen.MultiLineEdit, 
+	        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
+	        t  = F.add(oscscreen.TitleText, name = "Text:",)
+	        fn = F.add(oscscreen.TitleFilename, name = "Filename:")
+	        fn2 = F.add(oscscreen.TitleFilenameCombo, name="Filename2:")
+	        dt = F.add(oscscreen.TitleDateCombo, name = "Date:")
+	        s  = F.add(oscscreen.TitleSlider, out_of=12, name = "Slider")
+	        ml = F.add(oscscreen.MultiLineEdit, 
 	               value = """try typing here!\nMutiline text, press ^R to reformat.\n""", 
 	               max_height=5, rely=9)
-	        ms = F.add(npyscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
+	        ms = F.add(oscscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
 	                values = ["Option1","Option2","Option3"], scroll_exit=True)
-	        ms2= F.add(npyscreen.TitleMultiSelect, max_height =-2, value = [1,], name="Pick Several", 
+	        ms2= F.add(oscscreen.TitleMultiSelect, max_height =-2, value = [1,], name="Pick Several", 
 	                values = ["Option1","Option2","Option3"], scroll_exit=True)
         
 	        # This lets the user interact with the Form.
@@ -89,14 +89,14 @@ Compatibility
 
 Current development is done on Python 3, but the code is kept compatible with modern releases of Python 2.  Certain features related to unicode work better under Python 3.
 
-It is designed to run using only the python standard library, and the only requirements are a working python (2.4 or above) installation and a working curses library.  Npyscreen will therefore work on almost all common platforms, and even in the Cygwin environment on Windows.
+It is designed to run using only the python standard library, and the only requirements are a working python (2.4 or above) installation and a working curses library.  Oscscreen will therefore work on almost all common platforms, and even in the Cygwin environment on Windows.
 
 Python 3.4.0
 ------------
 
 There is a catastrophic bug in the Python curses module in 3.4.0: http://bugs.python.org/issue21088
 
-This bug is fixed in Python 3.4.1, and I was not alerted to it until 3.4.1 was already out.  I do not propose to release a workaround within npyscreen because I think the number of people who are stuck using Python 3.4.0 is very small.  If this causes a problem for you, please get in touch.
+This bug is fixed in Python 3.4.1, and I was not alerted to it until 3.4.1 was already out.  I do not propose to release a workaround within oscscreen because I think the number of people who are stuck using Python 3.4.0 is very small.  If this causes a problem for you, please get in touch.
 
 
 
@@ -112,5 +112,5 @@ Similar Projects
 
 You might also like to look at http://excess.org/urwid/ 
 
-Compared to npyscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.
+Compared to oscscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.
 

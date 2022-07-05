@@ -1,12 +1,12 @@
-import npyscreen
+import oscscreen
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         self.registerForm("MAIN", MainForm())
 
-class MainForm(npyscreen.Form):
+class MainForm(oscscreen.Form):
     def create(self):
-        self.add(npyscreen.Textfield, color='CRITICAL', value='Testing Testing')
+        self.add(oscscreen.Textfield, color='CRITICAL', value='Testing Testing')
         self.color = "CRITICAL"
         pass
 

@@ -1,4 +1,4 @@
-import npyscreen
+import oscscreen
 import curses
 
 
@@ -8,7 +8,7 @@ class TestTitleText(widget.Widget):
 
 
 
-class TestTitleWidget(npyscreen.TitleText):
+class TestTitleWidget(oscscreen.TitleText):
     def set_up_handlers(self):
         self.handlers = {
                    curses.ascii.NL:     self.h_exit_down,
@@ -26,7 +26,7 @@ class TestTitleWidget(npyscreen.TitleText):
 
 
 def TitleTest(screen):
-    F = npyscreen.Form()
+    F = oscscreen.Form()
     F.add(TestTitleWidget, name="Title 1")
     F.add(TestTitleWidget, name="Title 2")
     F.edit()

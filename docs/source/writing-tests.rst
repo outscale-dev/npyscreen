@@ -3,9 +3,9 @@ Writing Tests
 
 (New in version 4.7.0)
 
-It is possible to script npyscreen application keyboard input for the purposes of testing.  
+It is possible to script oscscreen application keyboard input for the purposes of testing.  
 
-The npyscreen module exports the following dictionary containing the relevant settings::
+The oscscreen module exports the following dictionary containing the relevant settings::
 
     TEST_SETTINGS = {
         'TEST_INPUT': None,
@@ -27,11 +27,11 @@ If 'CONTINUE_AFTER_TEST_INPUT' is true, then after the automatic input has been 
 Convenience Functions (new in version 4.8.5)
 --------------------------------------------
 
-.. py:function:: npyscreen.add_test_input_from_iterable(iterable)
+.. py:function:: oscscreen.add_test_input_from_iterable(iterable)
 	
 	Add each item of `iterable` to `TEST_SETTINGS['TEST_INPUT']`.
 
-.. py:function:: npyscreen.add_test_input_ch(ch)
+.. py:function:: oscscreen.add_test_input_ch(ch)
 
 	Add `ch` to `TEST_SETTINGS['TEST_INPUT']`.
     
@@ -39,7 +39,7 @@ Convenience Functions (new in version 4.8.5)
 Preventing Forking for writing unittests
 ----------------------------------------
 
-In order to avoid a memory leak in the underlying curses module, the npyscreen library sometimes chooses to run the application code in a forked process.  For testing purposes this is usually undesirable, and you probably want to pass `fork=False` to the `run()` method of your application for testing purposes.
+In order to avoid a memory leak in the underlying curses module, the oscscreen library sometimes chooses to run the application code in a forked process.  For testing purposes this is usually undesirable, and you probably want to pass `fork=False` to the `run()` method of your application for testing purposes.
 
 
 
@@ -51,17 +51,17 @@ The following is a trivial example::
 
     #!/usr/bin/python
     import curses
-    import npyscreen
+    import oscscreen
 
-    npyscreen.TEST_SETTINGS['TEST_INPUT'] = [ch for ch in 'This is a test']
-    npyscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
-    npyscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = True
+    oscscreen.TEST_SETTINGS['TEST_INPUT'] = [ch for ch in 'This is a test']
+    oscscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
+    oscscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = True
 
-    class TestForm(npyscreen.Form):
+    class TestForm(oscscreen.Form):
         def create(self):
-            self.myTitleText = self.add(npyscreen.TitleText, name="Events (Form Controlled):", editable=True)
+            self.myTitleText = self.add(oscscreen.TitleText, name="Events (Form Controlled):", editable=True)
     
-    class TestApp(npyscreen.StandardApp):
+    class TestApp(oscscreen.StandardApp):
         def onStart(self):
             self.addForm("MAIN", TestForm)
     

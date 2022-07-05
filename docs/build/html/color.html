@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Support for Colour &mdash; npyscreen 2 documentation</title>
+    <title>Support for Colour &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="next" title="Displaying Brief Messages and Choices" href="messages.html" />
     <link rel="prev" title="Enhancing Mouse Support" href="mouse.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="mouse.html" title="Enhancing Mouse Support"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,14 +53,14 @@
 <h1>Support for Colour<a class="headerlink" href="#support-for-colour" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="setting-up-colour">
 <h2>Setting up colour<a class="headerlink" href="#setting-up-colour" title="Permalink to this headline">¶</a></h2>
-<p>All of the standard widgets are entirely usable on a monochrome terminal.  However, it&#8217;s a colourful world these days, and npyscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.</p>
+<p>All of the standard widgets are entirely usable on a monochrome terminal.  However, it&#8217;s a colourful world these days, and oscscreen lets you display your widgets in, well, if not Technicolor(TM) then as close as curses will allow.</p>
 <p>Colour is handled by the ThemeManager class.  Generally, your application should stick to using one ThemeManager, which you should set using the <em>setTheme(ThemeManager)</em> function.  So for example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">npyscreen</span><span class="o">.</span><span class="n">setTheme</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Themes</span><span class="o">.</span><span class="n">ColorfulTheme</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">oscscreen</span><span class="o">.</span><span class="n">setTheme</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">Themes</span><span class="o">.</span><span class="n">ColorfulTheme</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Any default themes defined by npyscreen will be accessible via npyscreen.Themes.</p>
+<p>Any default themes defined by oscscreen will be accessible via oscscreen.Themes.</p>
 <p>A basic theme looks like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DefaultTheme</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">ThemeManager</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DefaultTheme</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">ThemeManager</span><span class="p">):</span>
     <span class="n">default_colors</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;DEFAULT&#39;</span>     <span class="p">:</span> <span class="s">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
     <span class="s">&#39;FORMDEFAULT&#39;</span> <span class="p">:</span> <span class="s">&#39;WHITE_BLACK&#39;</span><span class="p">,</span>
@@ -95,8 +95,8 @@
 )</pre>
 </div>
 <p>(&#8216;WHITE_BLACK&#8217; is always defined.)</p>
-<p>If you find you need more, subclass ThemeManager and change class attribute <em>_colours_to_define</em>.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, npyscreen does not by default.</p>
-<p>If you want to disable all colour in your application, npyscreen defines two convenient functions: <em>disableColor()</em> and <em>enableColor()</em>.</p>
+<p>If you find you need more, subclass ThemeManager and change class attribute <em>_colours_to_define</em>.   You are able to use colours other than the standard curses ones, but since not all terminals support doing so, oscscreen does not by default.</p>
+<p>If you want to disable all colour in your application, oscscreen defines two convenient functions: <em>disableColor()</em> and <em>enableColor()</em>.</p>
 </div>
 <div class="section" id="how-widgets-use-colour">
 <h2>How Widgets use colour<a class="headerlink" href="#how-widgets-use-colour" title="Permalink to this headline">¶</a></h2>
@@ -117,7 +117,7 @@ to theme manager classes.</p>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>NB. Current versions of npyscreen make no effort to reset these values when the application exits.</p>
+<p>NB. Current versions of oscscreen make no effort to reset these values when the application exits.</p>
 <p>Use of this facility is discouraged, because it is impossible to tell reliably whether or not a terminal actually supports custom colours.  This feature was added at user request to support a custom application.</p>
 </div>
 </div>
@@ -178,7 +178,7 @@ to theme manager classes.</p>
         <li class="right" >
           <a href="mouse.html" title="Enhancing Mouse Support"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

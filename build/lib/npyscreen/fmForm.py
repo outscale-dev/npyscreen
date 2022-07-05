@@ -87,7 +87,7 @@ class _FormBase(proto_fm_screen_area.ScreenArea,
 
     def create_widgets_from_list(self, widget_list):
         # This code is currently experimental, and the API may change in future releases
-        # (npyscreen.TextBox, {'rely': 2, 'relx': 7, 'editable': False})
+        # (oscscreen.TextBox, {'rely': 2, 'relx': 7, 'editable': False})
         for line in widget_list:
             w_type   = line[0]
             keywords = line[1]

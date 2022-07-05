@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # filename: npsapp.py
 
-from npyscreen import NPSApp
-from npyscreen import Form
+from oscscreen import NPSApp
+from oscscreen import Form
 
 class App(NPSApp):
    def main(self):
-       form = Form(name='Welcome to Npyscreen')
+       form = Form(name='Welcome to Oscscreen')
        form.edit()
 
 if __name__ == '__main__':

@@ -1,25 +1,25 @@
 # coding=utf-8
-import npyscreen
-npyscreen.npysGlobalOptions.ASCII_ONLY = False
+import oscscreen
+oscscreen.npysGlobalOptions.ASCII_ONLY = False
 
-class TestApp(npyscreen.NPSAppManaged):
+class TestApp(oscscreen.NPSAppManaged):
     
-    #__TEXT_WIDGET = npyscreen.TitleText
-    __TEXT_WIDGET = npyscreen.TextfieldUnicode
+    #__TEXT_WIDGET = oscscreen.TitleText
+    __TEXT_WIDGET = oscscreen.TextfieldUnicode
     
     def main(self):
         # These lines create the form and populate it with widgets.
         # A fairly complex screen in only 8 or so lines of code - a line for each control.
-        npyscreen.setTheme(npyscreen.Themes.ColorfulTheme)
-        F = npyscreen.ActionFormWithMenus(name = "Welcome to Npyscreen",)
+        oscscreen.setTheme(oscscreen.Themes.ColorfulTheme)
+        F = oscscreen.ActionFormWithMenus(name = "Welcome to Oscscreen",)
         t1 = F.add(self.__class__.__TEXT_WIDGET, name = "Text:", )
         t2 = F.add(self.__class__.__TEXT_WIDGET, name = "Text:", )
         t3 = F.add(self.__class__.__TEXT_WIDGET, name = "Text:", )
         t4 = F.add(self.__class__.__TEXT_WIDGET, name = "Text:", )
         
-        m1 = F.add(npyscreen.MultiLine, name = "Mutliline", scroll_exit=True, max_height=5)
+        m1 = F.add(oscscreen.MultiLine, name = "Mutliline", scroll_exit=True, max_height=5)
         
-        me = F.add(npyscreen.MultiLineEdit, name="Testing", autowrap=False)
+        me = F.add(oscscreen.MultiLineEdit, name="Testing", autowrap=False)
         
         
         t1.value = u"This is a \n test"

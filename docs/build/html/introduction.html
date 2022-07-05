@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>An introduction to npyscreen &mdash; npyscreen 2 documentation</title>
+    <title>An introduction to oscscreen &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
-    <link rel="next" title="Creating npyscreen applications" href="application-structure.html" />
-    <link rel="prev" title="Welcome to npyscreen’s documentation!" href="index.html" /> 
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
+    <link rel="next" title="Creating oscscreen applications" href="application-structure.html" />
+    <link rel="prev" title="Welcome to oscscreen’s documentation!" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +35,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="application-structure.html" title="Creating npyscreen applications"
+          <a href="application-structure.html" title="Creating oscscreen applications"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to npyscreen’s documentation!"
+          <a href="index.html" title="Welcome to oscscreen’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,12 +49,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="an-introduction-to-npyscreen">
-<h1>An introduction to npyscreen<a class="headerlink" href="#an-introduction-to-npyscreen" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="an-introduction-to-oscscreen">
+<h1>An introduction to oscscreen<a class="headerlink" href="#an-introduction-to-oscscreen" title="Permalink to this headline">¶</a></h1>
 <p><em>&#8216;Writing user interfaces without all that mucking about in hyperspace&#8217;</em></p>
 <div class="section" id="purpose">
 <h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
-<p>Npyscreen is a python widget library and application framework for programming terminal or console applications. It is built on top of ncurses, which is part of the standard library.</p>
+<p>Oscscreen is a python widget library and application framework for programming terminal or console applications. It is built on top of ncurses, which is part of the standard library.</p>
 <p>Wouldn&#8217;t it be really nice if asking the user to give you some information could be easy? As easy as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">MyForm</span> <span class="o">=</span> <span class="n">Form</span><span class="p">()</span>
 
@@ -75,23 +75,23 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># encoding: utf-8</span>
 
-<span class="kn">import</span> <span class="nn">npyscreen</span>
-<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
+<span class="kn">import</span> <span class="nn">oscscreen</span>
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># These lines create the form and populate it with widgets.</span>
         <span class="c"># A fairly complex screen in only 8 or so lines of code - a line for each control.</span>
-        <span class="n">F</span>  <span class="o">=</span> <span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Welcome to Npyscreen&quot;</span><span class="p">,)</span>
-        <span class="n">t</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Text:&quot;</span><span class="p">,)</span>
-        <span class="n">fn</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleFilename</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Filename:&quot;</span><span class="p">)</span>
-        <span class="n">fn2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleFilenameCombo</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Filename2:&quot;</span><span class="p">)</span>
-        <span class="n">dt</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleDateCombo</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Date:&quot;</span><span class="p">)</span>
-        <span class="n">s</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleSlider</span><span class="p">,</span> <span class="n">out_of</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Slider&quot;</span><span class="p">)</span>
-        <span class="n">ml</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">MultiLineEdit</span><span class="p">,</span>
+        <span class="n">F</span>  <span class="o">=</span> <span class="n">oscscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Welcome to Oscscreen&quot;</span><span class="p">,)</span>
+        <span class="n">t</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Text:&quot;</span><span class="p">,)</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleFilename</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Filename:&quot;</span><span class="p">)</span>
+        <span class="n">fn2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleFilenameCombo</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Filename2:&quot;</span><span class="p">)</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleDateCombo</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Date:&quot;</span><span class="p">)</span>
+        <span class="n">s</span>  <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleSlider</span><span class="p">,</span> <span class="n">out_of</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Slider&quot;</span><span class="p">)</span>
+        <span class="n">ml</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">MultiLineEdit</span><span class="p">,</span>
                <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;try typing here!</span><span class="se">\n</span><span class="s">Mutiline text, press ^R to reformat.</span><span class="se">\n</span><span class="s">&quot;&quot;&quot;</span><span class="p">,</span>
                <span class="n">max_height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rely</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-        <span class="n">ms</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleSelectOne</span><span class="p">,</span> <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Pick One&quot;</span><span class="p">,</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleSelectOne</span><span class="p">,</span> <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Pick One&quot;</span><span class="p">,</span>
                 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Option1&quot;</span><span class="p">,</span><span class="s">&quot;Option2&quot;</span><span class="p">,</span><span class="s">&quot;Option3&quot;</span><span class="p">],</span> <span class="n">scroll_exit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-        <span class="n">ms2</span><span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleMultiSelect</span><span class="p">,</span> <span class="n">max_height</span> <span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Pick Several&quot;</span><span class="p">,</span>
+        <span class="n">ms2</span><span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleMultiSelect</span><span class="p">,</span> <span class="n">max_height</span> <span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,],</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Pick Several&quot;</span><span class="p">,</span>
                 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Option1&quot;</span><span class="p">,</span><span class="s">&quot;Option2&quot;</span><span class="p">,</span><span class="s">&quot;Option3&quot;</span><span class="p">],</span> <span class="n">scroll_exit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
         <span class="c"># This lets the user interact with the Form.</span>
@@ -120,12 +120,12 @@ fixed-sized terminal.</p>
 <div class="section" id="compatibility">
 <h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
 <p>Current development is done on Python 3, but the code is kept compatible with modern releases of Python 2.  Certain features related to unicode work better under Python 3.</p>
-<p>It is designed to run using only the python standard library, and the only requirements are a working python (2.6 or above) installation and a working curses library.  Npyscreen will therefore work on almost all common platforms, and even in the Cygwin environment on Windows.</p>
+<p>It is designed to run using only the python standard library, and the only requirements are a working python (2.6 or above) installation and a working curses library.  Oscscreen will therefore work on almost all common platforms, and even in the Cygwin environment on Windows.</p>
 </div>
 <div class="section" id="python-3-4-0">
 <h2>Python 3.4.0<a class="headerlink" href="#python-3-4-0" title="Permalink to this headline">¶</a></h2>
 <p>There is a catastrophic bug in the Python curses module in 3.4.0: <a class="reference external" href="http://bugs.python.org/issue21088">http://bugs.python.org/issue21088</a></p>
-<p>This bug is fixed in Python 3.4.1, and I was not alerted to it until 3.4.1 was already out.  I do not propose to release a workaround within npyscreen because I think the number of people who are stuck using Python 3.4.0 is very small.  If this causes a problem for you, please get in touch.</p>
+<p>This bug is fixed in Python 3.4.1, and I was not alerted to it until 3.4.1 was already out.  I do not propose to release a workaround within oscscreen because I think the number of people who are stuck using Python 3.4.0 is very small.  If this causes a problem for you, please get in touch.</p>
 </div>
 <div class="section" id="unicode">
 <h2>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h2>
@@ -135,7 +135,7 @@ fixed-sized terminal.</p>
 <div class="section" id="similar-projects">
 <h2>Similar Projects<a class="headerlink" href="#similar-projects" title="Permalink to this headline">¶</a></h2>
 <p>You might also like to look at <a class="reference external" href="http://excess.org/urwid/">http://excess.org/urwid/</a></p>
-<p>Compared to npyscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.</p>
+<p>Compared to oscscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.</p>
 </div>
 </div>
 
@@ -147,7 +147,7 @@ fixed-sized terminal.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">An introduction to npyscreen</a><ul>
+<li><a class="reference internal" href="#">An introduction to oscscreen</a><ul>
 <li><a class="reference internal" href="#purpose">Purpose</a></li>
 <li><a class="reference internal" href="#example-code">Example Code</a></li>
 <li><a class="reference internal" href="#strengths">Strengths</a></li>
@@ -162,10 +162,10 @@ fixed-sized terminal.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to npyscreen&#8217;s documentation!</a></p>
+                        title="previous chapter">Welcome to oscscreen&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="application-structure.html"
-                        title="next chapter">Creating npyscreen applications</a></p>
+                        title="next chapter">Creating oscscreen applications</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/introduction.txt"
@@ -195,12 +195,12 @@ fixed-sized terminal.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="application-structure.html" title="Creating npyscreen applications"
+          <a href="application-structure.html" title="Creating oscscreen applications"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to npyscreen’s documentation!"
+          <a href="index.html" title="Welcome to oscscreen’s documentation!"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

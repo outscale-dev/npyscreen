@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import npyscreen, curses
+import oscscreen, curses
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         # When Application starts, set up the Forms that will be used.
         # These two forms are persistent between each edit.
@@ -11,7 +11,7 @@ class MyTestApp(npyscreen.NPSAppManaged):
         self.addFormClass("THIRD", MainForm, name="Screen 3", color="CRITICAL",)
         
     def onCleanExit(self):
-        npyscreen.notify_wait("Goodbye!")
+        oscscreen.notify_wait("Goodbye!")
     
     def change_form(self, name):
         # Switch forms.  NB. Do *not* call the .edit() method directly (which 
@@ -23,9 +23,9 @@ class MyTestApp(npyscreen.NPSAppManaged):
         # There's no harm in this, but we don't need it so:        
         self.resetHistory()
     
-class MainForm(npyscreen.ActionForm):
+class MainForm(oscscreen.ActionForm):
     def create(self):
-        self.add(npyscreen.TitleText, name = "Text:", value= "Press ^T to change screens" )
+        self.add(oscscreen.TitleText, name = "Text:", value= "Press ^T to change screens" )
         
         self.add_handlers({"^T": self.change_forms})
 

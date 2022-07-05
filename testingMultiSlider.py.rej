@@ -1,16 +1,16 @@
 ***************
 *** 1,21 ****
-- import npyscreen
+- import oscscreen
 - 
 - 
-- class MultiSlider(npyscreen.MultiLine):
--         _contained_widgets = npyscreen.Slider
+- class MultiSlider(oscscreen.MultiLine):
+-         _contained_widgets = oscscreen.Slider
 - 
 -         def display_value(self, vl):
 -                 return float(vl)
 - 
 - def main(screen):
--         F = npyscreen.Form()
+-         F = oscscreen.Form()
 -         ms3= F.add(MultiSlider)
 -         ms3.values = [
 - 						1, 10, 5, 20, 2, 30, 29, 22, 21, 18,
@@ -20,5 +20,5 @@
 -         F.edit()
 - 
 - if __name__ == '__main__':
--    npyscreen.wrapper(main)
+-    oscscreen.wrapper(main)
 --- 0 ----

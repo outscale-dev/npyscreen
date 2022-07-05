@@ -3,7 +3,7 @@ Writing More Complex Forms
 
 A very typical style of programming for terminal applications has been to have a screen that has a command line, typically at the bottom of the screen, and then some kind of list widget or other display taking up most of the screen, with a title bar at the top and a status bar above the command line.  Variations on this scheme are found in applications like Mutt, less, Vim, irssi and so on.
 
-To make writing these kinds of form easier, npyscreen provides a series of classes that are intended to work together.
+To make writing these kinds of form easier, oscscreen provides a series of classes that are intended to work together.
 
 FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActiveTraditionalWithMenus
     These classes define the basic form.  The following *class attributes* dictate exactly how the form is created::
@@ -70,7 +70,7 @@ The following example shows how this model works.  The application creates an Ac
 
 FmSearchActive is simply a FormMuttActiveTraditional class, with a class attribute that specifies that the form should use our action controller::
     
-    class ActionControllerSearch(npyscreen.ActionControllerSimple):
+    class ActionControllerSearch(oscscreen.ActionControllerSimple):
         def create(self):
             self.add_action('^/.*', self.set_search, True)
     
@@ -80,10 +80,10 @@ FmSearchActive is simply a FormMuttActiveTraditional class, with a class attribu
             self.parent.wMain.display()
 
 
-    class FmSearchActive(npyscreen.FormMuttActiveTraditional):
+    class FmSearchActive(oscscreen.FormMuttActiveTraditional):
         ACTION_CONTROLLER = ActionControllerSearch
 
-    class TestApp(npyscreen.NPSApp):
+    class TestApp(oscscreen.NPSApp):
         def main(self):
             F = FmSearchActive()
             F.wStatus1.value = "Status Line "

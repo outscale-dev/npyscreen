@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import npyscreen
+import oscscreen
 import threading
 import time
-#npyscreen.disableColor()
-class TestApp(npyscreen.NPSApp):
+#oscscreen.disableColor()
+class TestApp(oscscreen.NPSApp):
     def main(self):
         def _generateTestData(pager):
             i = 0
@@ -15,16 +15,16 @@ class TestApp(npyscreen.NPSApp):
                 pager.update()
                 i = i + 1
                 if i == 3:
-                    npyscreen.notify_ok_cancel("procced?")
+                    oscscreen.notify_ok_cancel("procced?")
 
         # These lines create the form and populate it with widgets.
         # A fairly complex screen in only 8 or so lines of code - a line for each control.
-        F = npyscreen.FormMultiPageActionWithMenus(name = "Welcome to Npyscreen",)
-        t = F.add(npyscreen.TitleText, name = "Text:",)
-        fn = F.add(npyscreen.TitleFilename, name = "Filename:")
-        dt = F.add(npyscreen.TitleDateCombo, name = "Date:")
-        s = F.add(npyscreen.TitleSlider, out_of=12, name = "Slider")
-        p = F.add(npyscreen.Pager, name = "Test DATA")
+        F = oscscreen.FormMultiPageActionWithMenus(name = "Welcome to Oscscreen",)
+        t = F.add(oscscreen.TitleText, name = "Text:",)
+        fn = F.add(oscscreen.TitleFilename, name = "Filename:")
+        dt = F.add(oscscreen.TitleDateCombo, name = "Date:")
+        s = F.add(oscscreen.TitleSlider, out_of=12, name = "Slider")
+        p = F.add(oscscreen.Pager, name = "Test DATA")
 
         mythread = threading.Thread(target=_generateTestData, args=(p,))
         mythread.start()
@@ -32,18 +32,18 @@ class TestApp(npyscreen.NPSApp):
         # The new page is created here.
         new_page = F.add_page()
         
-        ml= F.add(npyscreen.MultiLineEdit, 
+        ml= F.add(oscscreen.MultiLineEdit, 
             value = """try typing here!\nMutiline text, press ^R to reformat.\n""", 
                     max_height=5,)
-        ms= F.add(npyscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
+        ms= F.add(oscscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
                 values = ["Option1","Option2","Option3"], scroll_exit=True)
-        ms2= F.add(npyscreen.TitleMultiSelect, max_height =-2, value = [1,], name="Pick Several", 
+        ms2= F.add(oscscreen.TitleMultiSelect, max_height =-2, value = [1,], name="Pick Several", 
                 values = ["Option1","Option2","Option3"], scroll_exit=True)
         
         F.switch_page(0)
         
         def on_ok():
-            npyscreen.notify_confirm("OK Button Pressed!")
+            oscscreen.notify_confirm("OK Button Pressed!")
         F.on_ok = on_ok
         # This lets the user play with the Form.
         F.edit()

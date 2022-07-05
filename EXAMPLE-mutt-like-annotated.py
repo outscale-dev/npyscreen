@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 
-class TestListClass(npyscreen.MultiLine):
-	_contained_widgets = npyscreen.AnnotateTextboxBase
+class TestListClass(oscscreen.MultiLine):
+	_contained_widgets = oscscreen.AnnotateTextboxBase
 
-class TestForm(npyscreen.FormMutt):
+class TestForm(oscscreen.FormMutt):
 	MAIN_WIDGET_CLASS = TestListClass
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
         F = TestForm()
         F.wStatus1.value = "Status Line "

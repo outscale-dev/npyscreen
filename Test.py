@@ -1,15 +1,15 @@
-import npyscreen
+import oscscreen
 
-class myEmployeeForm(npyscreen.Form):
+class myEmployeeForm(oscscreen.Form):
     def afterEditing(self):
         self.parentApp.NEXT_ACTIVE_FORM = None
 
     def create(self):
-       self.myName        = self.add(npyscreen.TitleText, name='Name')
-       self.myDepartment = self.add(npyscreen.TitleSelectOne, scroll_exit=True, max_height=3, name='Department', values = ['Department 1', 'Department 2', 'Department 3'])
-       self.myDate        = self.add(npyscreen.TitleDateCombo, name='Date Employed')
+       self.myName        = self.add(oscscreen.TitleText, name='Name')
+       self.myDepartment = self.add(oscscreen.TitleSelectOne, scroll_exit=True, max_height=3, name='Department', values = ['Department 1', 'Department 2', 'Department 3'])
+       self.myDate        = self.add(oscscreen.TitleDateCombo, name='Date Employed')
 
-class MyApplication(npyscreen.NPSAppManaged):
+class MyApplication(oscscreen.NPSAppManaged):
    def onStart(self):
        self.addForm('MAIN', myEmployeeForm, name='New Employee')
        # A real application might define more forms here.......

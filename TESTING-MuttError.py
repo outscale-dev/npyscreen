@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 
-class TestForm(npyscreen.FormMutt):
+class TestForm(oscscreen.FormMutt):
     def __init__(self, *args, **keywords):
         super(TestForm, self).__init__(*args, **keywords)
         self.add_handlers({"^R": self.go_to_main})
@@ -11,7 +11,7 @@ class TestForm(npyscreen.FormMutt):
 
 
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
         F = TestForm()
         F.wStatus1.value = "Status Line "

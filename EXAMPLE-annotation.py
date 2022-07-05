@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 
 # This example shows how to display the contents of 
 # a dictionary to a user.
 
-class KeyValueLine(npyscreen.AnnotateTextboxBase):
+class KeyValueLine(oscscreen.AnnotateTextboxBase):
     ANNOTATE_WIDTH = 20
     def getAnnotationAndColor(self):
         if self.value:
@@ -18,7 +18,7 @@ class KeyValueLine(npyscreen.AnnotateTextboxBase):
         else:
             return ''
     
-class KeyValueMultiline(npyscreen.MultiLine):
+class KeyValueMultiline(oscscreen.MultiLine):
     _contained_widgets = KeyValueLine
     def when_parent_changes_value(self):
         self.values = self.parent.value.items()
@@ -27,11 +27,11 @@ class KeyValueMultiline(npyscreen.MultiLine):
         # pass the real object to subwidgets
         return vl
     
-class MyForm(npyscreen.Form):
+class MyForm(oscscreen.Form):
     def create(self):
         self.wgdisplay = self.add(KeyValueMultiline)
     
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         mainform = self.addForm("MAIN", MyForm)
         

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 import curses
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
 	def main(self):
-		self.F = npyscreen.Form(name = "Welcome to Npyscreen")
-		self.t = self.F.add(npyscreen.TitleText, name = "Text:")
+		self.F = oscscreen.Form(name = "Welcome to Oscscreen")
+		self.t = self.F.add(oscscreen.TitleText, name = "Text:")
 		while 1:
 			self.update_values()
 			curses.flash()

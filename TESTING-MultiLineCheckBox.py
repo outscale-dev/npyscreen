@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import npyscreen
-#npyscreen.disableColor()
+import oscscreen
+#oscscreen.disableColor()
 
 
-class MultiSelectWidgetTesting(npyscreen.MultiSelect):
-    _contained_widgets = npyscreen.CheckBoxMultiline
+class MultiSelectWidgetTesting(oscscreen.MultiSelect):
+    _contained_widgets = oscscreen.CheckBoxMultiline
     _contained_widget_height = 2
     
     def display_value(self, vl):
@@ -13,7 +13,7 @@ class MultiSelectWidgetTesting(npyscreen.MultiSelect):
 
 
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
         value_list = [
             ["This is", "the first"],
@@ -21,9 +21,9 @@ class TestApp(npyscreen.NPSApp):
             ["This is", "the third"],
             ["This is", "the fourth"],
         ]
-        F  = npyscreen.Form(name = "Welcome to Npyscreen",)
-        #t  = F.add(npyscreen.CheckBoxMultiline, max_height=4, name = ["This is a ", "multiline text box."])
-        #t  = F.add(npyscreen.CheckBoxMultiline, max_height=4, name = ["This is a second", "multiline text box."])
+        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
+        #t  = F.add(oscscreen.CheckBoxMultiline, max_height=4, name = ["This is a ", "multiline text box."])
+        #t  = F.add(oscscreen.CheckBoxMultiline, max_height=4, name = ["This is a second", "multiline text box."])
         t = F.add(MultiSelectWidgetTesting, max_height=7, name="Testing", values=value_list, slow_scroll=False)
         
         # This lets the user play with the Form.

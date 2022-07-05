@@ -1,20 +1,20 @@
-import npyscreen
+import oscscreen
 import curses
 
 
-class TestForm(npyscreen.Form):
+class TestForm(oscscreen.Form):
 
     def afterEditing(self):
         self.parentApp.setNextForm(None)
 
     def create(self):
-        self.grid = self.add(npyscreen.GridColTitles, name='GRID',
+        self.grid = self.add(oscscreen.GridColTitles, name='GRID',
 column_width=10, values=[(1, 2, 3, 4), (10, 20, 30, 40)], col_titles=['A',
 'B', 'C', 'D'])
         self.grid.when_cursor_moved = curses.beep
 
 
-class MyApplication(npyscreen.NPSAppManaged):
+class MyApplication(oscscreen.NPSAppManaged):
     def onStart(self):
         self.addForm('MAIN', TestForm, name='Test Form')
 

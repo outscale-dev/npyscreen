@@ -112,7 +112,7 @@ The following methods may be usefully overridden by subclassing NPSAppManaged.  
 
 .. py:method:: NPSAppManaged._internal_while_waiting
 
-	This method is for internal use by npyscreen.
+	This method is for internal use by oscscreen.
 
 .. py:method:: NPSAppManaged.switchForm(formid)
 

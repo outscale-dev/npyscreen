@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Writing More Complex Forms &mdash; npyscreen 2 documentation</title>
+    <title>Writing More Complex Forms &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="next" title="Writing Tests" href="writing-tests.html" />
     <link rel="prev" title="Application Support" href="options.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="options.html" title="Application Support"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -52,7 +52,7 @@
   <div class="section" id="writing-more-complex-forms">
 <h1>Writing More Complex Forms<a class="headerlink" href="#writing-more-complex-forms" title="Permalink to this headline">¶</a></h1>
 <p>A very typical style of programming for terminal applications has been to have a screen that has a command line, typically at the bottom of the screen, and then some kind of list widget or other display taking up most of the screen, with a title bar at the top and a status bar above the command line.  Variations on this scheme are found in applications like Mutt, less, Vim, irssi and so on.</p>
-<p>To make writing these kinds of form easier, npyscreen provides a series of classes that are intended to work together.</p>
+<p>To make writing these kinds of form easier, oscscreen provides a series of classes that are intended to work together.</p>
 <dl class="docutils">
 <dt>FormMuttActive, FormMuttActiveWithMenus, FormMuttActiveTraditional, FormMuttActiveTraditionalWithMenus</dt>
 <dd><p class="first">These classes define the basic form.  The following <em>class attributes</em> dictate exactly how the form is created:</p>
@@ -105,7 +105,7 @@
 <h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
 <p>The following example shows how this model works.  The application creates an ActionController that has a search action.  This action calls the user-defined function set_search, which communicates with the Form&#8217;s parent.value (actually a NPSFilteredDataBase class). It then uses this class to set the values in wMain.values and calls wMain.display() to update the display.</p>
 <p>FmSearchActive is simply a FormMuttActiveTraditional class, with a class attribute that specifies that the form should use our action controller:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ActionControllerSearch</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">ActionControllerSimple</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ActionControllerSearch</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">ActionControllerSimple</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="s">&#39;^/.*&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_search</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 
@@ -115,10 +115,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">wMain</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">FmSearchActive</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">FormMuttActiveTraditional</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">FmSearchActive</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">FormMuttActiveTraditional</span><span class="p">):</span>
     <span class="n">ACTION_CONTROLLER</span> <span class="o">=</span> <span class="n">ActionControllerSearch</span>
 
-<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">NPSApp</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">F</span> <span class="o">=</span> <span class="n">FmSearchActive</span><span class="p">()</span>
         <span class="n">F</span><span class="o">.</span><span class="n">wStatus1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Status Line &quot;</span>
@@ -191,7 +191,7 @@
         <li class="right" >
           <a href="options.html" title="Application Support"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

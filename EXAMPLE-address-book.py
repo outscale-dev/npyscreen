@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import npyscreen
+import oscscreen
 import sqlite3
 
 
@@ -59,7 +59,7 @@ class AddressDatabase(object):
         c.close()
         return records[0]
 
-class RecordList(npyscreen.MultiLineAction):
+class RecordList(oscscreen.MultiLineAction):
     def __init__(self, *args, **keywords):
         super(RecordList, self).__init__(*args, **keywords)
         self.add_handlers({
@@ -83,7 +83,7 @@ class RecordList(npyscreen.MultiLineAction):
         self.parent.update_list()
 
 
-class RecordListDisplay(npyscreen.FormMutt):
+class RecordListDisplay(oscscreen.FormMutt):
     MAIN_WIDGET_CLASS = RecordList
     def beforeEditing(self):
         self.update_list()
@@ -93,12 +93,12 @@ class RecordListDisplay(npyscreen.FormMutt):
         self.wMain.display()
     
     
-class EditRecord(npyscreen.ActionForm):
+class EditRecord(oscscreen.ActionForm):
     def create(self):
         self.value = None
-        self.wgLastName   = self.add(npyscreen.TitleText, name = "Last Name:",)
-        self.wgOtherNames = self.add(npyscreen.TitleText, name = "Other Names:")
-        self.wgEmail      = self.add(npyscreen.TitleText, name = "Email:")
+        self.wgLastName   = self.add(oscscreen.TitleText, name = "Last Name:",)
+        self.wgOtherNames = self.add(oscscreen.TitleText, name = "Other Names:")
+        self.wgEmail      = self.add(oscscreen.TitleText, name = "Email:")
         
     def beforeEditing(self):
         if self.value:
@@ -135,7 +135,7 @@ class EditRecord(npyscreen.ActionForm):
     
 
 
-class AddressBookApplication(npyscreen.NPSAppManaged):
+class AddressBookApplication(oscscreen.NPSAppManaged):
     def onStart(self):
         self.myDatabase = AddressDatabase()
         self.addForm("MAIN", RecordListDisplay)

@@ -1,25 +1,25 @@
 #!/usr/bin/env python
 RETURN = []
-import npyscreen
+import oscscreen
 
-class SelectableTreeLine(npyscreen.TreeLineSelectableAnnotated):
+class SelectableTreeLine(oscscreen.TreeLineSelectableAnnotated):
     def calculate_area_needed(self):
         "Need two lines of screen, and any width going"
         return 2,0
     
 
-class TestTree(npyscreen.MLTreeMultiSelect):
+class TestTree(oscscreen.MLTreeMultiSelect):
     _contained_widgets = SelectableTreeLine
     _contained_widget_height = 2
 
 
-class TestApp(npyscreen.NPSApp):
+class TestApp(oscscreen.NPSApp):
     def main(self):
-        F = npyscreen.Form(name = "Testing Tree class",)
-        #wgtree = F.add(npyscreen.MLTree)
+        F = oscscreen.Form(name = "Testing Tree class",)
+        #wgtree = F.add(oscscreen.MLTree)
         wgtree = F.add(TestTree)
         
-        treedata = npyscreen.NPSTreeData(content='Root', selectable=True,ignoreRoot=False)
+        treedata = oscscreen.NPSTreeData(content='Root', selectable=True,ignoreRoot=False)
         c1 = treedata.newChild(content='Child 1', selectable=True, selected=True)
         c2 = treedata.newChild(content='Child 2', selectable=True)
         g1 = c1.newChild(content='Grand-child 1', selectable=True)

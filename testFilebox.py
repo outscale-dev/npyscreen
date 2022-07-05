@@ -1,10 +1,10 @@
-import npyscreen
+import oscscreen
 
-class MyTestApp(npyscreen.NPSAppManaged):
+class MyTestApp(oscscreen.NPSAppManaged):
     def onStart(self):
         self.addFormClass("MAIN", MainForm)
 
-class MainForm(npyscreen.FileSelector):
+class MainForm(oscscreen.FileSelector):
     pass
 
 def main():
@@ -12,8 +12,8 @@ def main():
     TA.run()
 
 def test_function(scr):
-    t = npyscreen.selectFile('~/',)
-    npyscreen.notify_confirm(title='Selected File', message=t)
+    t = oscscreen.selectFile('~/',)
+    oscscreen.notify_confirm(title='Selected File', message=t)
 if __name__ == '__main__':
     #main()
-    print(npyscreen.wrapper(test_function))
+    print(oscscreen.wrapper(test_function))

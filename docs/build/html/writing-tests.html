@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Writing Tests &mdash; npyscreen 2 documentation</title>
+    <title>Writing Tests &mdash; oscscreen 2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="npyscreen 2 documentation" href="index.html" />
+    <link rel="top" title="oscscreen 2 documentation" href="index.html" />
     <link rel="next" title="Example Application: A simple address book" href="example-addressbk.html" />
     <link rel="prev" title="Writing More Complex Forms" href="muttlike.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="muttlike.html" title="Writing More Complex Forms"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -52,8 +52,8 @@
   <div class="section" id="writing-tests">
 <h1>Writing Tests<a class="headerlink" href="#writing-tests" title="Permalink to this headline">¶</a></h1>
 <p>(New in version 4.7.0)</p>
-<p>It is possible to script npyscreen application keyboard input for the purposes of testing.</p>
-<p>The npyscreen module exports the following dictionary containing the relevant settings:</p>
+<p>It is possible to script oscscreen application keyboard input for the purposes of testing.</p>
+<p>The oscscreen module exports the following dictionary containing the relevant settings:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">TEST_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;TEST_INPUT&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
     <span class="s">&#39;TEST_INPUT_LOG&#39;</span><span class="p">:</span> <span class="p">[],</span>
@@ -69,38 +69,38 @@
 <div class="section" id="convenience-functions-new-in-version-4-8-5">
 <h2>Convenience Functions (new in version 4.8.5)<a class="headerlink" href="#convenience-functions-new-in-version-4-8-5" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="npyscreen.add_test_input_from_iterable">
-<tt class="descclassname">npyscreen.</tt><tt class="descname">add_test_input_from_iterable</tt><big>(</big><em>iterable</em><big>)</big><a class="headerlink" href="#npyscreen.add_test_input_from_iterable" title="Permalink to this definition">¶</a></dt>
+<dt id="oscscreen.add_test_input_from_iterable">
+<tt class="descclassname">oscscreen.</tt><tt class="descname">add_test_input_from_iterable</tt><big>(</big><em>iterable</em><big>)</big><a class="headerlink" href="#oscscreen.add_test_input_from_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add each item of <cite>iterable</cite> to <cite>TEST_SETTINGS[&#8216;TEST_INPUT&#8217;]</cite>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="npyscreen.add_test_input_ch">
-<tt class="descclassname">npyscreen.</tt><tt class="descname">add_test_input_ch</tt><big>(</big><em>ch</em><big>)</big><a class="headerlink" href="#npyscreen.add_test_input_ch" title="Permalink to this definition">¶</a></dt>
+<dt id="oscscreen.add_test_input_ch">
+<tt class="descclassname">oscscreen.</tt><tt class="descname">add_test_input_ch</tt><big>(</big><em>ch</em><big>)</big><a class="headerlink" href="#oscscreen.add_test_input_ch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add <cite>ch</cite> to <cite>TEST_SETTINGS[&#8216;TEST_INPUT&#8217;]</cite>.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="preventing-forking-for-writing-unittests">
 <h2>Preventing Forking for writing unittests<a class="headerlink" href="#preventing-forking-for-writing-unittests" title="Permalink to this headline">¶</a></h2>
-<p>In order to avoid a memory leak in the underlying curses module, the npyscreen library sometimes chooses to run the application code in a forked process.  For testing purposes this is usually undesirable, and you probably want to pass <cite>fork=False</cite> to the <cite>run()</cite> method of your application for testing purposes.</p>
+<p>In order to avoid a memory leak in the underlying curses module, the oscscreen library sometimes chooses to run the application code in a forked process.  For testing purposes this is usually undesirable, and you probably want to pass <cite>fork=False</cite> to the <cite>run()</cite> method of your application for testing purposes.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The following is a trivial example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
 <span class="kn">import</span> <span class="nn">curses</span>
-<span class="kn">import</span> <span class="nn">npyscreen</span>
+<span class="kn">import</span> <span class="nn">oscscreen</span>
 
-<span class="n">npyscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;TEST_INPUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s">&#39;This is a test&#39;</span><span class="p">]</span>
-<span class="n">npyscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;TEST_INPUT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curses</span><span class="o">.</span><span class="n">KEY_DOWN</span><span class="p">)</span>
-<span class="n">npyscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;CONTINUE_AFTER_TEST_INPUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">oscscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;TEST_INPUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s">&#39;This is a test&#39;</span><span class="p">]</span>
+<span class="n">oscscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;TEST_INPUT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curses</span><span class="o">.</span><span class="n">KEY_DOWN</span><span class="p">)</span>
+<span class="n">oscscreen</span><span class="o">.</span><span class="n">TEST_SETTINGS</span><span class="p">[</span><span class="s">&#39;CONTINUE_AFTER_TEST_INPUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="k">class</span> <span class="nc">TestForm</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TestForm</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">myTitleText</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Events (Form Controlled):&quot;</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myTitleText</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">TitleText</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Events (Form Controlled):&quot;</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">npyscreen</span><span class="o">.</span><span class="n">StandardApp</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">oscscreen</span><span class="o">.</span><span class="n">StandardApp</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">onStart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addForm</span><span class="p">(</span><span class="s">&quot;MAIN&quot;</span><span class="p">,</span> <span class="n">TestForm</span><span class="p">)</span>
 
@@ -170,7 +170,7 @@
         <li class="right" >
           <a href="muttlike.html" title="Writing More Complex Forms"
              >previous</a> |</li>
-        <li><a href="index.html">npyscreen 2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">oscscreen 2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
