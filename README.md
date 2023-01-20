@@ -1,41 +1,20 @@
-# Oscscreen (npyscreen forl
+# Oscscreen (npyscreen fork)
 [![Project Sandbox](https://docs.outscale.com/fr/userguide/_images/Project-Sandbox-yellow.svg)](https://docs.outscale.com/en/userguide/Open-Source-Projects.html)
 
 *Oscscreen is a python widget library and application framework for programming terminal or console applications.  It is built on top of ncurses, which is part of the standard library.*
 
+We fork Npyscreen, for osc-tui usage, as npyscreen seems unmaintained.
+
 Documentation
 =============
 
-Online documentation can be found at:
+Npyscreen Online documentation can be found at:
 
-http://oscscreen.readthedocs.org/
+http://npyscreen.readthedocs.org/
 
 Downloads
 =========
-
-The library can be downloaded from:
-
-https://pypi.python.org/pypi/oscscreen/
-
-Official Repository
-===================
-
-Please note that the official source code repository is at:
-
-https://bitbucket.org/npcole/oscscreen
-
-There is a github repository at:
-
-https://github.com/npcole/oscscreen
-
-for users that prefer github.  If possible, though, please file bug reports at the bitbucket repository.
-
-The original source code archive was at:
-
-https://code.google.com/p/oscscreen/
-
-This archive will continue to be updated for as long as code.google.com accepts updates.
-
+The library need to be install from source
 
 
 Strengths
