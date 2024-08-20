@@ -3,22 +3,22 @@
 
 import sys
 import os
-import oscscreen
+import osc_npyscreen
 
 import inspect
-import oscscreen
-from oscscreen.widget import Widget
+import osc_npyscreen
+from osc_npyscreen.widget import Widget
 
 def main(*args):
-    members = inspect.getmembers(oscscreen)
+    members = inspect.getmembers(osc_npyscreen)
     for m in members:
         name, cl = m
-        if isinstance(m, oscscreen.Form):
+        if isinstance(m, osc_npyscreen.Form):
             print "True"
         
 
 
 if __name__ == '__main__':
     main()
-    #oscscreen.wrapper(main)
+    #osc_npyscreen.wrapper(main)
 

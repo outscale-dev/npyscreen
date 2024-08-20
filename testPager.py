@@ -1,4 +1,4 @@
-import oscscreen
+import osc_npyscreen
 
 test_text = """\
 Dickens, Charles, 1812-1870. A Tale of Two Cities 
@@ -1056,14 +1056,14 @@ postilion cracked his whip, and they clattered away under the feeble over- swing
 
 
 
-class MyTestApp(oscscreen.NPSAppManaged):
+class MyTestApp(osc_npyscreen.NPSAppManaged):
     def onStart(self):
         self.addFormClass("MAIN", MainForm)
 
-class MainForm(oscscreen.Form):
+class MainForm(osc_npyscreen.Form):
     def create(self):
         global test_text
-        wMain = self.add(oscscreen.Pager, autowrap=True, values=test_text.split("\n"))
+        wMain = self.add(osc_npyscreen.Pager, autowrap=True, values=test_text.split("\n"))
 
 def main():
     TA = MyTestApp()

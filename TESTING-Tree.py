@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 RETURN = []
-import oscscreen
-class TestApp(oscscreen.NPSApp):
+import osc_npyscreen
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
-        F = oscscreen.Form(name = "Testing Tree class",)
-        #wgtree = F.add(oscscreen.MLTree)
-        wgtree = F.add(oscscreen.MLTreeMultiSelect)
+        F = osc_npyscreen.Form(name = "Testing Tree class",)
+        #wgtree = F.add(osc_npyscreen.MLTree)
+        wgtree = F.add(osc_npyscreen.MLTreeMultiSelect)
         
-        treedata = oscscreen.NPSTreeData(content='Root', selectable=True,ignoreRoot=False)
+        treedata = osc_npyscreen.NPSTreeData(content='Root', selectable=True,ignoreRoot=False)
         c1 = treedata.newChild(content='Child 1', selectable=True, selected=True)
         c2 = treedata.newChild(content='Child 2', selectable=True)
         g1 = c1.newChild(content='Grand-child 1', selectable=True)

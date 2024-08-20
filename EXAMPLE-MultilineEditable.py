@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import oscscreen
-#oscscreen.disableColor()
+import osc_npyscreen
+#osc_npyscreen.disableColor()
 
 
-class TestApp(oscscreen.NPSApp):
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
         value_list = [
            "This is the first",
@@ -12,8 +12,8 @@ class TestApp(oscscreen.NPSApp):
            "This is the third",
            "This is the fourth",
         ]
-        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
-        t = F.add(oscscreen.MultiLineEditableBoxed,
+        F  = osc_npyscreen.Form(name = "Welcome to Oscscreen",)
+        t = F.add(osc_npyscreen.MultiLineEditableBoxed,
                         max_height=20,
                         name='List of Values',
                         footer="Press i or o to insert values", 

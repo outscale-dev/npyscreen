@@ -1,11 +1,11 @@
 import curses
 import weakref
-import oscscreen
+import osc_npyscreen
 import email
 import mimetypes
 import os.path
 
-class EmailTreeLine(oscscreen.TreeLine):
+class EmailTreeLine(osc_npyscreen.TreeLine):
     def display_value(self, vl):
         return vl
         if vl:
@@ -13,7 +13,7 @@ class EmailTreeLine(oscscreen.TreeLine):
         else:
             return ""
     
-class EmailTree(oscscreen.MultiLineTreeNew):
+class EmailTree(osc_npyscreen.MultiLineTreeNew):
     _contained_widgets = EmailTreeLine
     def display_value(self, vl):
         return vl.getContent().get_content_type()
@@ -33,7 +33,7 @@ class EmailTree(oscscreen.MultiLineTreeNew):
             value = [self.values[self.cursor_line],]
         self.parent.when_select_part(value)
         self.editing = False
-        self.how_exited=oscscreen.wgwidget.EXITED_UP
+        self.how_exited=osc_npyscreen.wgwidget.EXITED_UP
         self.hidden  = True
         
     def h_select_exit(self, ch):
@@ -47,10 +47,10 @@ class EmailTree(oscscreen.MultiLineTreeNew):
         
     def h_save_message_part(self, ch):
         self.parent.saveMessagePart()
-        oscscreen.notify_wait("Message part saved to your downloads folder: \n %s" % self.parent.DOWNLOAD_DIR)        
+        osc_npyscreen.notify_wait("Message part saved to your downloads folder: \n %s" % self.parent.DOWNLOAD_DIR)        
 
 
-class EmailPager(oscscreen.Pager):
+class EmailPager(osc_npyscreen.Pager):
     def set_up_handlers(self):
         super(EmailPager, self).set_up_handlers()
         self.handlers.update({
@@ -68,10 +68,10 @@ class EmailPager(oscscreen.Pager):
     
     def h_save_message_part(self, ch):
         self.parent.saveMessagePart()
-        oscscreen.notify_wait("Message part saved to your downloads folder: \n %s" % self.parent.DOWNLOAD_DIR)
+        osc_npyscreen.notify_wait("Message part saved to your downloads folder: \n %s" % self.parent.DOWNLOAD_DIR)
 
 
-class EmailViewFm(oscscreen.SplitFormWithMenus):
+class EmailViewFm(osc_npyscreen.SplitFormWithMenus):
     BLANK_COLUMNS_RIGHT= 1
     SHORT_HEADER_LIST = ('from', 'to', 'cc', 'bcc' 'date', 'subject', 'reply-to')
     DOWNLOAD_DIR = os.path.expanduser("~/Downloads")
@@ -121,11 +121,11 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
             ('View Message Source',             self.viewMessageSource),
         ])
         self.nextrely = 1
-        self.wSubject = self.add(oscscreen.TitleText, begin_entry_at=10, editable=False, 
+        self.wSubject = self.add(osc_npyscreen.TitleText, begin_entry_at=10, editable=False, 
                                         use_two_lines=False, name = "Subject:")
-        self.wFrom    = self.add(oscscreen.TitleText, begin_entry_at=10, 
+        self.wFrom    = self.add(osc_npyscreen.TitleText, begin_entry_at=10, 
                                         editable=False, name = "From:", ) #max_width=-8)
-        self.wDate    = self.add(oscscreen.TitleText, begin_entry_at=10, 
+        self.wDate    = self.add(osc_npyscreen.TitleText, begin_entry_at=10, 
                                         editable=False, name = "Date:")
         
         self.draw_line_at   = self.nextrely
@@ -135,7 +135,7 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
         self.nextrely       = _body_rely
         self.wMessageTree   = self.add(EmailTree, max_height=-1, scroll_exit=True, hidden=False)
         self.nextrely      += 1
-        self.wStatusLine    = self.add(oscscreen.FixedText, 
+        self.wStatusLine    = self.add(osc_npyscreen.FixedText, 
             editable=False, 
             use_max_space=True, 
             color='STANDOUT', 
@@ -144,7 +144,7 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
     
     def _parse_email_tree(self, this_email):
         "Create an NPSTree representation of the email."
-        self._this_email_tree = oscscreen.NPSTreeData(content=this_email, ignoreRoot=False)
+        self._this_email_tree = osc_npyscreen.NPSTreeData(content=this_email, ignoreRoot=False)
         if this_email.is_multipart():
             for part in this_email.get_payload():
                 self._tree_add_children(self._this_email_tree, part)
@@ -182,7 +182,7 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
             if these_headers:
                 for h in these_headers:
                     s_header_list.append(str(headers).capitalize() + ": " + h.strip())
-        oscscreen.notify_confirm(s_header_list, wide=True, wrap=False)
+        osc_npyscreen.notify_confirm(s_header_list, wide=True, wrap=False)
         
     def saveMessagePart(self, vl=None):
         if vl == None:
@@ -224,7 +224,7 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
             if these_headers:
                 for h in these_headers:
                     s_header_list.append(str(headers).capitalize() + ": " + h.strip())
-        oscscreen.notify_confirm(s_header_list, wide=True, wrap=True)
+        osc_npyscreen.notify_confirm(s_header_list, wide=True, wrap=True)
             
     
     def viewMessageTree(self,):
@@ -232,4 +232,4 @@ class EmailViewFm(oscscreen.SplitFormWithMenus):
         self.wEmailBody.hidden = True
     
     def viewMessageSource(self,):
-        oscscreen.notify_confirm(self.this_email.as_string(), wide=True)
+        osc_npyscreen.notify_confirm(self.this_email.as_string(), wide=True)

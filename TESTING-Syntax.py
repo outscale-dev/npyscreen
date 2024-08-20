@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import curses
-import oscscreen
-#oscscreen.disableColor()
+import osc_npyscreen
+#osc_npyscreen.disableColor()
 
-class SyntaxTest(oscscreen.Textfield):
+class SyntaxTest(osc_npyscreen.Textfield):
     def update_highlighting(self, start, end):
         # highlighting color
         hl_color  = self.parent.theme_manager.findPair(self, 'IMPORTANT')
@@ -25,20 +25,20 @@ class SyntaxTest(oscscreen.Textfield):
                         hl_colorc,
         ]
 
-#class SyntaxTestMultiline(oscscreen.MultiLineEdit):
+#class SyntaxTestMultiline(osc_npyscreen.MultiLineEdit):
 #    def update_highlighting(self, start, end):
 #        self._highlightingdata = [curses.A_BOLD, curses.A_BOLD, curses.A_BOLD]
 
 
 
-class TestApp(oscscreen.NPSApp):
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
         # These lines create the form and populate it with widgets.
         # A fairly complex screen in only 8 or so lines of code - a line for each control.
-        F = oscscreen.Form(name = "Welcome to Oscscreen",)
+        F = osc_npyscreen.Form(name = "Welcome to Oscscreen",)
         t = F.add(SyntaxTest, name = "Text:",)
         t.syntax_highlighting = True
-        ml= F.add(oscscreen.MultiLineEdit, 
+        ml= F.add(osc_npyscreen.MultiLineEdit, 
             value = """try typing here!\nMutiline text, press ^R to reformat.\n""", 
             max_height=5, rely=9)
         ml.syntax_highlighting = True

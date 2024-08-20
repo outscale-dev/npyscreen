@@ -1,18 +1,18 @@
 #!/usr/bin/python
 import curses
-import oscscreen
+import osc_npyscreen
 import unittest
 
-oscscreen.add_test_input_from_iterable('This is a test')
-oscscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
-oscscreen.TEST_SETTINGS['TEST_INPUT'].append("^X")
-oscscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = True
+osc_npyscreen.add_test_input_from_iterable('This is a test')
+osc_npyscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
+osc_npyscreen.TEST_SETTINGS['TEST_INPUT'].append("^X")
+osc_npyscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = True
 
-class TestForm(oscscreen.FormWithMenus):
+class TestForm(osc_npyscreen.FormWithMenus):
     def create(self):
-        self.myTitleText = self.add(oscscreen.TitleText, name="Events (Form Controlled):", editable=True)
+        self.myTitleText = self.add(osc_npyscreen.TitleText, name="Events (Form Controlled):", editable=True)
 
-class TestApp(oscscreen.StandardApp):
+class TestApp(osc_npyscreen.StandardApp):
     def onStart(self):
         self.addForm("MAIN", TestForm)
 
@@ -21,8 +21,8 @@ class Tests(unittest.TestCase):
         self.testApp = TestApp()
         
     def test_text_entry(self):
-        oscscreen.TEST_SETTINGS['TEST_INPUT'] = [ch for ch in 'This is a test']
-        oscscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
+        osc_npyscreen.TEST_SETTINGS['TEST_INPUT'] = [ch for ch in 'This is a test']
+        osc_npyscreen.TEST_SETTINGS['TEST_INPUT'].append(curses.KEY_DOWN)
         
         
         

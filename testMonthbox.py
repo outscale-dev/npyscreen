@@ -1,13 +1,13 @@
 #!/bin/env python
-import oscscreen
+import osc_npyscreen
 
-class MainFm(oscscreen.Form):
+class MainFm(osc_npyscreen.Form):
     def create(self):
-        self.mb = self.add(oscscreen.MonthBox,
+        self.mb = self.add(osc_npyscreen.MonthBox,
                     use_datetime = True)
 
 
-class TestApp(oscscreen.NPSAppManaged):
+class TestApp(osc_npyscreen.NPSAppManaged):
     def onStart(self):
         self.addForm("MAIN", MainFm)
 

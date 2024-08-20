@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/moscscreen.iml" filepath="$PROJECT_DIR$/.idea/moscscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mosc_npyscreen.iml" filepath="$PROJECT_DIR$/.idea/mosc_npyscreen.iml" />
     </modules>
   </component>
 </project>

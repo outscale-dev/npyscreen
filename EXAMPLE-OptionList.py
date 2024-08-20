@@ -7,29 +7,29 @@
 
 
 
-import oscscreen
-class TestApp(oscscreen.NPSApp):
+import osc_npyscreen
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
-        Options = oscscreen.OptionList()
+        Options = osc_npyscreen.OptionList()
         
         # just for convenience so we don't have to keep writing Options.options
         options = Options.options
         
-        options.append(oscscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
-        options.append(oscscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
-        options.append(oscscreen.OptionFilename('Filename', ))
-        options.append(oscscreen.OptionDate('Date', ))
-        options.append(oscscreen.OptionMultiFreeText('Multiline Text', value=''))
-        options.append(oscscreen.OptionMultiFreeList('Multiline List'))
+        options.append(osc_npyscreen.OptionFreeText('FreeText', value='', documentation="This is some documentation."))
+        options.append(osc_npyscreen.OptionMultiChoice('Multichoice', choices=['Choice 1', 'Choice 2', 'Choice 3']))
+        options.append(osc_npyscreen.OptionFilename('Filename', ))
+        options.append(osc_npyscreen.OptionDate('Date', ))
+        options.append(osc_npyscreen.OptionMultiFreeText('Multiline Text', value=''))
+        options.append(osc_npyscreen.OptionMultiFreeList('Multiline List'))
         
         try:
             Options.reload_from_file('/tmp/test')
         except FileNotFoundError:
             pass        
         
-        F  = oscscreen.Form(name = "Welcome to Oscscreen",)
+        F  = osc_npyscreen.Form(name = "Welcome to Oscscreen",)
 
-        ms = F.add(oscscreen.OptionListDisplay, name="Option List", 
+        ms = F.add(osc_npyscreen.OptionListDisplay, name="Option List", 
                 values = options, 
                 scroll_exit=True,
                 max_height=None)

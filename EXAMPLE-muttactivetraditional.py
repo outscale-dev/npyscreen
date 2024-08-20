@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-import oscscreen
+import osc_npyscreen
 import curses
 
 
-class ActionControllerSearch(oscscreen.ActionControllerSimple):
+class ActionControllerSearch(osc_npyscreen.ActionControllerSimple):
     def create(self):
         self.add_action('^/.*', self.set_search, True)
     
@@ -13,10 +13,10 @@ class ActionControllerSearch(oscscreen.ActionControllerSimple):
         self.parent.wMain.display()
 
 
-class FmSearchActive(oscscreen.FormMuttActiveTraditional):
+class FmSearchActive(osc_npyscreen.FormMuttActiveTraditional):
     ACTION_CONTROLLER = ActionControllerSearch
 
-class TestApp(oscscreen.NPSApp):
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
         F = FmSearchActive()
         F.wStatus1.value = "Status Line "

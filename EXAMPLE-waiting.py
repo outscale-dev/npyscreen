@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-import oscscreen
+import osc_npyscreen
 import curses
-#oscscreen.disableColor()
+#osc_npyscreen.disableColor()
 
-class BeepForm(oscscreen.ActionForm):
+class BeepForm(osc_npyscreen.ActionForm):
     def create(self, *args, **keywords):
         super(BeepForm, self).create(*args, **keywords)
         #self.keypress_timeout = 10
@@ -12,7 +12,7 @@ class BeepForm(oscscreen.ActionForm):
         curses.beep()
         
         
-class TestApp(oscscreen.NPSApp):
+class TestApp(osc_npyscreen.NPSApp):
     def while_waiting(self):
         curses.beep()
         
@@ -21,14 +21,14 @@ class TestApp(oscscreen.NPSApp):
         # A fairly complex screen in only 8 or so lines of code - a line for each control.
         self.keypress_timeout_default = 10
         F = BeepForm(parentApp=self, name = "Welcome to Oscscreen",)
-        t = F.add(oscscreen.TitleText, name = "Text:", )
-        fn = F.add(oscscreen.TitleFilename, name = "Filename:")
-        dt = F.add(oscscreen.TitleDateCombo, name = "Date:")
-        s = F.add(oscscreen.TitleSlider, out_of=12, name = "Slider", color='DANGER')
-        ml= F.add(oscscreen.MultiLineEdit, 
+        t = F.add(osc_npyscreen.TitleText, name = "Text:", )
+        fn = F.add(osc_npyscreen.TitleFilename, name = "Filename:")
+        dt = F.add(osc_npyscreen.TitleDateCombo, name = "Date:")
+        s = F.add(osc_npyscreen.TitleSlider, out_of=12, name = "Slider", color='DANGER')
+        ml= F.add(osc_npyscreen.MultiLineEdit, 
             value = """try typing here!\nMutiline text, press ^R to reformat.\n""", 
             max_height=5, rely=9)
-        ms= F.add(oscscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
+        ms= F.add(osc_npyscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One", 
                 values = ["Option1","Option2","Option3"], scroll_exit=True)
         
         # This lets the user play with the Form.

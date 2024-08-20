@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # filename: npsapp.py
 
-from oscscreen import NPSApp
-from oscscreen import Form
+from osc_npyscreen import NPSApp
+from osc_npyscreen import Form
 
 class App(NPSApp):
    def main(self):

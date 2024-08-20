@@ -4,9 +4,9 @@
 import cProfile
 import pstats
 
-from oscscreen import NPSApp
-from oscscreen import Form
-from oscscreen import TextTokens, TitleTextTokens
+from osc_npyscreen import NPSApp
+from osc_npyscreen import Form
+from osc_npyscreen import TextTokens, TitleTextTokens
 
 class TextBoxForm(Form):
     def create(self):

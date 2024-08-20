@@ -30,7 +30,7 @@ Support
 =======
 Please use the Issue Tracker on this page to report bugs and other problems, or to make feature requests.
 
-There is a mailing list at https://groups.google.com/forum/?fromgroups#!forum/oscscreen/ if you need help getting your application to run.
+There is a mailing list at https://groups.google.com/forum/?fromgroups#!forum/osc_npyscreen/ if you need help getting your application to run.
 
 ----
 
@@ -53,4 +53,4 @@ Similar Projects
 
 You might also like to look at http://excess.org/urwid/ 
 
-Compared to oscscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.
+Compared to osc_npyscreen, urwid is more like a traditional, event-driven gui library, and targets other display devices as well as curses.

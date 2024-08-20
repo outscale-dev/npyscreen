@@ -1,11 +1,11 @@
 #!/usr/bin/python
-import oscscreen
+import osc_npyscreen
 import curses
 import curses.ascii
 
 def mainloop(scr):
-	S = oscscreen.Form()
-	display=S.add_widget(oscscreen.TitleText, name="Key name:")
+	S = osc_npyscreen.Form()
+	display=S.add_widget(osc_npyscreen.TitleText, name="Key name:")
 	S.display()
 	while 1:
 		S.curses_pad.keypad(1)

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-import oscscreen
+import osc_npyscreen
 
-class TestApp(oscscreen.NPSApp):
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
-        F = oscscreen.FormMutt()
+        F = osc_npyscreen.FormMutt()
         F.add
         F.wStatus1.value = "Status Line "
         F.wStatus2.value = "Second Status Line "

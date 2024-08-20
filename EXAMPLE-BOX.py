@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import oscscreen
-#oscscreen.disableColor()
-class TestApp(oscscreen.NPSApp):
+import osc_npyscreen
+#osc_npyscreen.disableColor()
+class TestApp(osc_npyscreen.NPSApp):
     def main(self):
-        F = oscscreen.Form(name = "Welcome to Oscscreen",)
-        t = F.add(oscscreen.BoxBasic, name = "Basic Box:", max_width=30, relx=2, max_height=3)
+        F = osc_npyscreen.Form(name = "Welcome to Oscscreen",)
+        t = F.add(osc_npyscreen.BoxBasic, name = "Basic Box:", max_width=30, relx=2, max_height=3)
         t.footer = "This is a footer"
         
-        t1 = F.add(oscscreen.BoxBasic, name = "Basic Box:", rely=2, relx=32, 
+        t1 = F.add(osc_npyscreen.BoxBasic, name = "Basic Box:", rely=2, relx=32, 
                         max_width=30, max_height=3)
         
         
-        t2 = F.add(oscscreen.BoxTitle, name="Box Title:", max_height=6)
-        t3 = F.add(oscscreen.BoxTitle, name="Box Title2:", max_height=6,
+        t2 = F.add(osc_npyscreen.BoxTitle, name="Box Title:", max_height=6)
+        t3 = F.add(osc_npyscreen.BoxTitle, name="Box Title2:", max_height=6,
                         scroll_exit = True,
                         contained_widget_arguments={
                                 'color': "WARNING", 

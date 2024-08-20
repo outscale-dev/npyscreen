@@ -275,7 +275,7 @@ class Widget(InputHandler, wgwidget_proto._LinePrinter, EventHandler):
     def set_relyx(self, y, x):
         """
         Set the position of the widget on the Form.  If y or x is a negative value,
-        oscscreen will try to position it relative to the bottom or right edge of the 
+        osc_npyscreen will try to position it relative to the bottom or right edge of the 
         Form.  Note that this ignores any margins that the Form may have defined.
         This is currently an experimental feature.  A future version of the API may 
         take account of the margins set by the parent Form.

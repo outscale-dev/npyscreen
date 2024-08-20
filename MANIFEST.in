@@ -1,4 +1,4 @@
-include oscscreen/CHANGELOG
+include osc_npyscreen/CHANGELOG
 include setup.py
 include EXAMPLE*.py
 include LICENCE

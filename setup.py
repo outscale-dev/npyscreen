@@ -2,13 +2,13 @@
 from distutils.core import setup
 
 setup(
-	name="oscscreen",
+	name="osc_npyscreen",
 	version="4.9.1",
 	description="Writing user interfaces without all that ugly mucking about in hyperspace",
 	author="Nicholas Cole",
 	author_email="n@npcole.com",
-	url="http://www.npcole.com/oscscreen/",
-	packages=['oscscreen', 'oscscreen.compatibility_code'],
+	url="http://www.npcole.com/osc_npyscreen/",
+	packages=['osc_npyscreen', 'osc_npyscreen.compatibility_code'],
 	license='New BSD License',
 	classifiers= [
 	    'Development Status :: 5 - Production/Stable',
@@ -30,11 +30,11 @@ There is a very wide variety of default widgets - everything from simple text fi
 
 I have used versions of this library for private scripts and small applications for around ten years. As a result, it is fairly mature.	
 
-Documentation is online at http://oscscreen.readthedocs.org
+Documentation is online at http://osc_npyscreen.readthedocs.org
 
-Please report bugs or make feature requests using the bug-tracker at http://code.google.com/p/oscscreen.
+Please report bugs or make feature requests using the bug-tracker at http://code.google.com/p/osc_npyscreen.
 
-There is a mailing list available at https://groups.google.com/forum/?fromgroups#!forum/oscscreen/
+There is a mailing list available at https://groups.google.com/forum/?fromgroups#!forum/osc_npyscreen/
 
 
 *Latest Changes*:
@@ -60,7 +60,7 @@ Version 4.8.3 updates the documentation.
 Version 4.8.2 makes the standard grid widget easier to customize by adding
 the custom_print_cell method.
 
-Version 4.8.1 fixes a bug that causes oscscreen to crash.
+Version 4.8.1 fixes a bug that causes osc_npyscreen to crash.
 
 Version 4.8.0 adds a mechanism for finer control of BoxTitle contained
 widgets.
@@ -77,7 +77,7 @@ Version 4.6.3 is a minor bug-fix release.
 
 Version 4.6.1 updates the documentation to note that there is a bug in
 Python's curses library in 3.4.0.  This is fixed in 3.4.1.  I do not propose
-to put a workaround into oscscreen, which would complicate the code a great
+to put a workaround into osc_npyscreen, which would complicate the code a great
 deal for a bug that very few people face.  For more details, see:
 http://bugs.python.org/issue21088
 
